@@ -5,9 +5,9 @@
 #ifndef PROJETO_AED_2ND_CSV_READER_H
 #define PROJETO_AED_2ND_CSV_READER_H
 
-#include <vector>
 #include <fstream>
 #include <sstream>
+#include <unordered_map>
 #include "Airport.h"
 #include "Flight.h"
 #include "Airline.h"
@@ -20,14 +20,14 @@ private:
     void read_airlines_csv();
     void read_airports_csv();
     void read_flights_csv();
-    std::vector<Airport> airports;
-    std::vector<Airline> airlines;
+    std::unordered_map<std::string, Airport> airports;
+    std::unordered_map<std::string, Airline> airlines;
 
     Airport* get_airport_pointer_by_code(std::string code);
 public:
     csv_reader();
-    std::vector<Airport> getAirports();
-    std::vector<Airline> getAirlines();
+    std::unordered_map<std::string, Airport> getAirports();
+    std::unordered_map<std::string, Airline> getAirlines();
 };
 
 #endif //PROJETO_AED_2ND_CSV_READER_H

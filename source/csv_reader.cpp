@@ -29,7 +29,7 @@ void csv_reader::read_airlines_csv() {
             }
             Airline airline(airline_elements[0],airline_elements[1],
                             airline_elements[2],airline_elements[3]);
-            this->airlines.push_back(airline);
+            this->airlines.insert({airline.getCode(), airline});
         }
         file.close();
     }
@@ -49,7 +49,7 @@ void csv_reader::read_airports_csv() {
             Airport airport(airport_elements[0],airport_elements[1],
                             airport_elements[2],airport_elements[3],
                             stod(airport_elements[4]),stod(airport_elements[5]));
-            this->airports.push_back(airport);
+            this->airports.insert({airport.getCode(), airport});
         }
         file.close();
     }
@@ -76,18 +76,18 @@ void csv_reader::read_flights_csv() {
 }
 
 Airport* csv_reader::get_airport_pointer_by_code(string code) {
-    for (Airport &airport : this->airports) {
-        if (airport.getCode() == code) {
-            return &airport;
-        }
+    try {
+        Airport *airport_pointer = &this->airports.at(code);
+        return airport_pointer;
+    } catch (std::out_of_range &e) {
+        return nullptr;
     }
-    return nullptr;
 }
 
-std::vector<Airport> csv_reader::getAirports() {
+std::unordered_map<std::string, Airport> csv_reader::getAirports() {
     return this->airports;
 }
 
-std::vector<Airline> csv_reader::getAirlines() {
+std::unordered_map<std::string, Airline> csv_reader::getAirlines() {
     return this->airlines;
 }

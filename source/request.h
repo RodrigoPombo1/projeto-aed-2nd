@@ -10,12 +10,16 @@
 
 class request {
 private:
-    std::vector<Airport> airports;
-    std::vector<Airline> airlines;
+    std::unordered_map<std::string, Airport> airports;
+    std::unordered_map<std::string, Airline> airlines;
     csv_reader csvReader;
+
+    // functions used internally by request
+
 public:
     request();
 
+    // functions called by menu
 };
 
 #endif //PROJETO_AED_2ND_REQUEST_H
