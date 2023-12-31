@@ -1,0 +1,15 @@
+# ninja log v5
+18	582	7256816322072853	CMakeFiles/projeto_aed_2nd.dir/main.cpp.obj	113f42bdbe2a2081
+156	1726	7256816333635282	CMakeFiles/projeto_aed_2nd.dir/source/Airline.cpp.obj	7d2674d2613446a0
+50	3557	7256818167157404	CMakeFiles/projeto_aed_2nd.dir/source/Flight.cpp.obj	e9c7e12065a5d91b
+82	2821	7256818413104852	CMakeFiles/projeto_aed_2nd.dir/source/Flight.cpp.obj	e9c7e12065a5d91b
+261	3032	7256818415222910	CMakeFiles/projeto_aed_2nd.dir/source/Airport.cpp.obj	11911ce6480b4657
+14	3518	7256818420093345	CMakeFiles/projeto_aed_2nd.dir/source/csv_reader.cpp.obj	649c07816f569c7a
+11	2222	7256818629200757	CMakeFiles/projeto_aed_2nd.dir/source/request.cpp.obj	5d506a2ca5f339e4
+380	2336	7256818630302637	CMakeFiles/projeto_aed_2nd.dir/source/menu.cpp.obj	2cd39799266c119c
+37	3614	7256840906539107	CMakeFiles/projeto_aed_2nd.dir/source/menu.cpp.obj	2cd39799266c119c
+7	3676	7256840907206002	CMakeFiles/projeto_aed_2nd.dir/main.cpp.obj	113f42bdbe2a2081
+53	3772	7256840908369631	CMakeFiles/projeto_aed_2nd.dir/source/request.cpp.obj	5d506a2ca5f339e4
+23	3898	7256840909653399	CMakeFiles/projeto_aed_2nd.dir/source/csv_reader.cpp.obj	649c07816f569c7a
+6	1374	7256841496686136	CMakeFiles/projeto_aed_2nd.dir/source/menu.cpp.obj	2cd39799266c119c
+1375	1743	7256841500312885	projeto_aed_2nd.exe	5e7aab6d41ba3950
