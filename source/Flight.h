@@ -21,6 +21,7 @@ public:
     Airport* getTarget();
     std::string getAirline();
     double getDistance();
+    std::string toString();
 };
 
 

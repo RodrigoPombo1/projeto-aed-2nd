@@ -41,3 +41,7 @@ double Flight::calculate_distance(Airport* source) {
     double c = 2 * asin(sqrt(a));
     return rad * c;
 }
+
+std::string Flight::toString() {
+    return this->target->getCode() + " " + this->airline + " " + std::to_string(this->distance);
+}

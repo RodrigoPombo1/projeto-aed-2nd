@@ -22,7 +22,6 @@ private:
     void read_flights_csv();
     std::unordered_map<std::string, Airport> airports;
     std::unordered_map<std::string, Airline> airlines;
-
     Airport* get_airport_pointer_by_code(std::string code);
 public:
     csv_reader();

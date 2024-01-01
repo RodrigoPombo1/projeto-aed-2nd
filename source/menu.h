@@ -8,6 +8,7 @@
 #include "request.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 class menu {
 private:
@@ -19,6 +20,7 @@ private:
     int print_menu_and_get_number_input(std::string current_selection);
     std::string print_menu_and_get_string_input(std::string current_selection);
     void print_separator();
+    int print_result_and_get_choice_input(std::string current_selection, std::vector<std::string> results);
 
     // main menu
     void main_menu();
@@ -32,9 +34,12 @@ private:
 
     // statistics of the network
     void global_statistics();
-    void statistics_for_a_specific_airport();
+    void statistics_for_a_specific_airport_get_airport();
+    void statistics_for_a_specific_airport(Airport *airport_pointer);
     void statistics_for_a_specific_city();
     void statistics_for_a_specific_airline();
+
+    void get_airline_to_filter_flights(std::vector<Flight> flights);
 
     // global statistics
     void get_total_number_of_airports();

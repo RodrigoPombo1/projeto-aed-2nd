@@ -7,9 +7,9 @@
 using namespace std;
 
 csv_reader::csv_reader() {
-    this->airlines_csv_file_name = "airlines.csv";
-    this->airports_csv_file_name = "airports.csv";
-    this->flights_csv_file_name = "flights.csv";
+    this->airlines_csv_file_name = "data/airlines.csv";
+    this->airports_csv_file_name = "data/airports.csv";
+    this->flights_csv_file_name = "data/flights.csv";
 
     read_airlines_csv();
     read_airports_csv();
@@ -20,6 +20,7 @@ void csv_reader::read_airlines_csv() {
     ifstream file(this->airlines_csv_file_name);
     string line;
     if (file.is_open()) {
+        getline(file, line);
         while (getline(file, line)) {
             vector<string> airline_elements;
             stringstream current_line_string_stream(line);
@@ -39,6 +40,7 @@ void csv_reader::read_airports_csv() {
     ifstream file(this->airports_csv_file_name);
     string line;
     if (file.is_open()) {
+        getline(file, line);
         while (getline(file, line)) {
             vector<string> airport_elements;
             stringstream current_line_string_stream(line);
@@ -59,6 +61,7 @@ void csv_reader::read_flights_csv() {
     ifstream file(this->flights_csv_file_name);
     string line;
     if (file.is_open()) {
+        getline(file, line);
         while (getline(file, line)) {
             vector<string> flight_elements;
             stringstream current_line_string_stream(line);
