@@ -22,3 +22,7 @@ Airport* request::get_airport_pointer_from_airport_code(std::string airport_code
     }
     return &this->airports.at(airport_code);
 }
+
+int request::get_total_number_of_airports() {
+    return this->airports.size();
+}

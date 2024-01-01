@@ -21,6 +21,7 @@ public:
     // functions called by menu
     std::vector<Flight> get_flights_from_airport_pointer(Airport *airport_pointer);
     Airport* get_airport_pointer_from_airport_code(std::string airport_code);
+    int get_total_number_of_airports();
 };
 
 #endif //PROJETO_AED_2ND_REQUEST_H
