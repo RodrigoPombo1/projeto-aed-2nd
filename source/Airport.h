@@ -30,6 +30,7 @@ public:
     double getLongitude();
     std::vector<Flight> getFlights();
     void addFlight(Flight flight);
+    std::string toString();
 
     bool operator==(const Airport &other) const;
 };

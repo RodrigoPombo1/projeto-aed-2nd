@@ -34,3 +34,21 @@ int request::get_total_number_of_flights_from_all_airports() {
     }
     return total_number_of_flights;
 }
+
+vector<pair<int, Airport>> request::get_airports_with_top_air_traffic_capacity(int top_number_of_airports) {
+    multimap<int, Airport> airports_by_air_traffic_capacity;
+    for (auto &airport : this->airports) {
+        airports_by_air_traffic_capacity.insert({airport.second.getFlights().size(), airport.second});
+    }
+    vector<pair<int, Airport>> res;
+    int i = 0;
+    for (auto it = airports_by_air_traffic_capacity.rbegin();
+            it != airports_by_air_traffic_capacity.rend(); it++) {
+        if (i == top_number_of_airports) {
+            break;
+        }
+        res.push_back({it->first, it->second});
+        i++;
+    }
+    return res;
+}

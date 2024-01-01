@@ -207,7 +207,7 @@ void menu::global_statistics() {
                 this->get_total_number_of_available_flights();
                 break;
             case 3:
-//                this->get_airports_with_top_air_traffic_capacity();
+                this->get_airports_with_top_air_traffic_capacity();
                 break;
             case 4:
 //                this->get_airports_that_are_essential_to_the_network();
@@ -367,6 +367,57 @@ void menu::get_total_number_of_available_flights() {
             default:
                 cout << "Invalid input, please try again\n";
                 break;
+        }
+    }
+}
+
+void menu::get_airports_with_top_air_traffic_capacity() {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Airports with top air traffic capacity - enter number of airports to show";
+        int input = this->print_menu_and_get_number_input(current_menu);
+        if (input == -1) {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        else if (input == 0) {
+            return;
+        }
+        else {
+            vector<pair<int, Airport>> top_airports = Request.get_airports_with_top_air_traffic_capacity(input);
+            if (top_airports.empty()) {
+                string current_selection = "No airports found.";
+                vector<string> res = {"No airports found with this number of flights."};
+                int input = this->print_result_and_get_choice_input(current_selection, res);
+                switch(input) {
+                    case -1:
+                        this->go_back_to_main_menu = true;
+                        return;
+                    case 0:
+                        break;
+                    default:
+                        cout << "Invalid input, please try again\n";
+                        break;
+                }
+            }
+            else {
+                string current_menu = "The airports with top air traffic capacity are: ";
+                vector<string> vec_res;
+                for (pair<int, Airport> pair_num_flights_and_airport : top_airports) {
+                    vec_res.push_back(to_string(pair_num_flights_and_airport.first) + " flights out - "
+                                      + pair_num_flights_and_airport.second.toString());
+                }
+                int input = this->print_result_and_get_choice_input(current_menu, vec_res);
+                switch(input) {
+                    case -1:
+                        this->go_back_to_main_menu = true;
+                        return;
+                    case 0:
+                        break;
+                    default:
+                        cout << "Invalid input, please try again\n";
+                        break;
+                }
+            }
         }
     }
 }

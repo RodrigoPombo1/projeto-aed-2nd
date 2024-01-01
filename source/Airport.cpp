@@ -49,6 +49,12 @@ void Airport::addFlight(Flight flight) {
     this->flights.push_back(flight);
 }
 
+string Airport::toString() {
+    return this->code + " " + this->name + " " + this->city
+    + " " + this->country + " " + to_string(this->latitude)
+    + " " + to_string(this->longitude);
+}
+
 bool Airport::operator==(const Airport &other) const {
     return this->code == other.code;
 }

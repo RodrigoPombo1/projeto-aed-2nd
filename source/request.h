@@ -6,6 +6,7 @@
 #define PROJETO_AED_2ND_REQUEST_H
 
 #include <vector>
+#include <map>
 #include "csv_reader.h"
 
 class request {
@@ -23,6 +24,7 @@ public:
     Airport* get_airport_pointer_from_airport_code(std::string airport_code);
     int get_total_number_of_airports();
     int get_total_number_of_flights_from_all_airports();
+    std::vector<std::pair<int, Airport>> get_airports_with_top_air_traffic_capacity(int top_number_of_airports);
 };
 
 #endif //PROJETO_AED_2ND_REQUEST_H
