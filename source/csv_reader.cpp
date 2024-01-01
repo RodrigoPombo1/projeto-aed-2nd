@@ -6,6 +6,8 @@
 
 using namespace std;
 
+/// @brief Gets all the information from the csv files
+/// complexity: O(n1+m1) + O(n2+m2) + O(n3+m3)
 csv_reader::csv_reader() {
     this->airlines_csv_file_name = "data/airlines.csv";
     this->airports_csv_file_name = "data/airports.csv";
@@ -16,6 +18,8 @@ csv_reader::csv_reader() {
     read_flights_csv();
 }
 
+/// @brief Reads the airlines csv file and gets all the information about each airline
+/// complexity: O(n1*m1) (n1 = number of lines in the csv file, m1 = number of cells in each line)
 void csv_reader::read_airlines_csv() {
     ifstream file(this->airlines_csv_file_name);
     string line;
@@ -36,6 +40,8 @@ void csv_reader::read_airlines_csv() {
     }
 }
 
+/// @brief Reads the airports csv file and gets all the information about each airport
+/// complexity: O(n2*m2) (n2 = number of lines in the csv file, m2 = number of cells in each line)
 void csv_reader::read_airports_csv() {
     ifstream file(this->airports_csv_file_name);
     string line;
@@ -57,6 +63,8 @@ void csv_reader::read_airports_csv() {
     }
 }
 
+/// @brief Reads the airlines csv file and gets all the information about each flight
+/// complexity: O(n3*m3) (n3 = number of lines in the csv file, m3 = number of cells in each line)
 void csv_reader::read_flights_csv() {
     ifstream file(this->flights_csv_file_name);
     string line;
@@ -78,6 +86,10 @@ void csv_reader::read_flights_csv() {
     }
 }
 
+/// @brief Gets the pointer to the airport wanted by it's code
+/// complexity: O(1)
+/// @param code code of the airport we want the pointer to
+/// @return pointer to the airport
 Airport* csv_reader::get_airport_pointer_by_code(string code) {
     try {
         Airport *airport_pointer = &this->airports.at(code);
@@ -87,10 +99,16 @@ Airport* csv_reader::get_airport_pointer_by_code(string code) {
     }
 }
 
+/// @brief Gets all the airports
+/// complexity: O(1)
+/// @return map with all airports
 std::unordered_map<std::string, Airport> csv_reader::getAirports() {
     return this->airports;
 }
 
+/// @brief Gets all the airlines
+/// complexity: O(1)
+/// @return map with all airlines
 std::unordered_map<std::string, Airline> csv_reader::getAirlines() {
     return this->airlines;
 }
