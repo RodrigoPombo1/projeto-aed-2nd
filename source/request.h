@@ -25,6 +25,8 @@ public:
     int get_total_number_of_airports();
     int get_total_number_of_flights_from_all_airports();
     std::vector<std::pair<int, Airport>> get_airports_with_top_air_traffic_capacity(int top_number_of_airports);
+    Airline* get_airline_pointer_from_airline_code(std::string airline_code);
+    int get_number_flights_from_airline_pointer(Airline *airline_pointer);
 };
 
 #endif //PROJETO_AED_2ND_REQUEST_H

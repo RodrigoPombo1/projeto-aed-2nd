@@ -177,7 +177,7 @@ void menu::statistics_of_the_network() {
 //                this->statistics_for_a_specific_city();
                 break;
             case 4:
-//                this->statistics_for_a_specific_airline();
+                this->statistics_for_a_specific_airline_get_airline();
                 break;
             default:
                 cout << "Invalid input, please try again\n";
@@ -418,6 +418,65 @@ void menu::get_airports_with_top_air_traffic_capacity() {
                         break;
                 }
             }
+        }
+    }
+}
+
+void menu::statistics_for_a_specific_airline_get_airline() {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Statistics for a specific airline - enter airline code";
+        string airline_code = this->print_menu_and_get_string_input(current_menu);
+        if (airline_code == "0") {
+            return;
+        } else if (airline_code == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        } else {
+            Airline *airline_pointer = this->Request.get_airline_pointer_from_airline_code(airline_code);
+            if (airline_pointer == nullptr) {
+                cout << "Airline with code " << airline_code << " does not exist\n";
+            } else {
+                this->statistics_for_a_specific_airline(airline_pointer);
+            }
+        }
+    }
+}
+
+void menu::statistics_for_a_specific_airline(Airline *airline_pointer) {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Statistics for a specific airline - " + airline_pointer->getCode();
+        vector<string> options = {"Number of flights", "Number of countries that it flies to",
+                                  "Number of reachable destinations"};
+        int input = this->print_menu_and_get_choice_input(current_menu, options);
+        switch (input) {
+            case -1:
+                this->go_back_to_main_menu = true;
+                return;
+            case 0:
+                return;
+            case 1 : {
+                int flights_from_airline = Request.get_number_flights_from_airline_pointer(airline_pointer);
+                string res = "There are " + to_string(flights_from_airline)
+                             + " flights from this airline in total.";
+                vector<string> vec_res = {res};
+                int input2 = this->print_result_and_get_choice_input(current_menu, vec_res);
+                switch (input2) {
+                    case -1:
+                        this->go_back_to_main_menu = true;
+                        return;
+                    case 0:
+                        break;
+                    default:
+                        cout << "Invalid input, please try again\n";
+                        break;
+                }
+            }
+            case 2:
+//                this->get_airports_cities_or_airlines_to_consider();
+                break;
+            case 3:
+//                this->get_maximum_number_of_stops();
+                break;
         }
     }
 }

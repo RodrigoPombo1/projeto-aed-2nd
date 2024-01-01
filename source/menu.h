@@ -37,7 +37,8 @@ private:
     void statistics_for_a_specific_airport_get_airport();
     void statistics_for_a_specific_airport(Airport *airport_pointer);
     void statistics_for_a_specific_city();
-    void statistics_for_a_specific_airline();
+    void statistics_for_a_specific_airline_get_airline();
+    void statistics_for_a_specific_airline(Airline *airline_pointer);
 
     void get_airline_to_filter_flights(std::vector<Flight> flights);
 

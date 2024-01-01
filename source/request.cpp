@@ -52,3 +52,24 @@ vector<pair<int, Airport>> request::get_airports_with_top_air_traffic_capacity(i
     }
     return res;
 }
+
+Airline* request::get_airline_pointer_from_airline_code(std::string airline_code) {
+    if (this->airlines.find(airline_code) == this->airlines.end()) {
+        return nullptr;
+    }
+    return &this->airlines.at(airline_code);
+}
+
+int request::get_number_flights_from_airline_pointer(Airline *airline_pointer) {
+    int total_number_of_flights = 0;
+    string airline_code = airline_pointer->getCode();
+    for (auto &airport : this->airports) {
+        vector<Flight> flights_from_airport = airport.second.getFlights();
+        for (auto &flight : flights_from_airport) {
+            if (flight.getAirline() == airline_code) {
+                total_number_of_flights++;
+            }
+        }
+    }
+    return total_number_of_flights;
+}
