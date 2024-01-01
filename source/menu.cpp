@@ -204,7 +204,7 @@ void menu::global_statistics() {
                 this->get_total_number_of_airports();
                 break;
             case 2:
-//                this->get_total_number_of_available_flights();
+                this->get_total_number_of_available_flights();
                 break;
             case 3:
 //                this->get_airports_with_top_air_traffic_capacity();
@@ -338,6 +338,25 @@ void menu::get_total_number_of_airports() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Total number of airports";
         vector<string> res = {"There are " + to_string(Request.get_total_number_of_airports()) + " airports in total."};
+        int input = this->print_result_and_get_choice_input(current_menu, res);
+        switch(input) {
+            case -1:
+                this->go_back_to_main_menu = true;
+                return;
+            case 0:
+                return;
+            default:
+                cout << "Invalid input, please try again\n";
+                break;
+        }
+    }
+}
+
+void menu::get_total_number_of_available_flights() {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Total number of available flights";
+        vector<string> res = {"There are " + to_string(Request.get_total_number_of_flights_from_all_airports())
+                              + " flights in total from all airports."};
         int input = this->print_result_and_get_choice_input(current_menu, res);
         switch(input) {
             case -1:

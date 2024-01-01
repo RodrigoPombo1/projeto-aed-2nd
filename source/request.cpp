@@ -26,3 +26,11 @@ Airport* request::get_airport_pointer_from_airport_code(std::string airport_code
 int request::get_total_number_of_airports() {
     return this->airports.size();
 }
+
+int request::get_total_number_of_flights_from_all_airports() {
+    int total_number_of_flights = 0;
+    for (auto &airport : this->airports) {
+        total_number_of_flights += airport.second.getFlights().size();
+    }
+    return total_number_of_flights;
+}
