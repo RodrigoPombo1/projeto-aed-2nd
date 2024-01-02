@@ -45,6 +45,7 @@ private:
     void global_statistics();
     void statistics_for_a_specific_airport_get_airport();
     void statistics_for_a_specific_airport(Airport *airport_pointer);
+    void statistics_for_a_specific_airport_want_airline(Airport *airport_pointer);
     void statistics_for_a_specific_city_get_city();
     void statistics_for_a_specific_city_want_airline(City *city_pointer);
     void statistics_for_a_specific_city_get_airline(City *city_pointer);

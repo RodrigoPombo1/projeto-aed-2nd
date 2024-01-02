@@ -245,6 +245,34 @@ void menu::statistics_for_a_specific_airport_get_airport() {
 void menu::statistics_for_a_specific_airport(Airport *airport_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistic for a specific airport - " + airport_pointer->getCode();
+        vector<string> options = {"Number of flights out of the airport", "Number of countries the airport has flights to",
+                                  "Number of reachable destinations"};
+        int input = this->print_menu_and_get_choice_input(current_menu, options);
+        switch (input) {
+            case -1:
+                this->go_back_to_main_menu = true;
+                return;
+            case 0:
+                return;
+            case 1:
+                this->statistics_for_a_specific_airport_want_airline(airport_pointer);
+                break;
+            case 2:
+//                this->specific_airport_get_number_of_countries_it_flies_to;
+                break;
+            case 3:
+//                this->specific_airport_get_number_of_reachable_destinations;
+                break;
+            default:
+                cout << "Invalid input, please try again\n";
+                break;
+        }
+    }
+}
+
+void menu::statistics_for_a_specific_airport_want_airline(Airport *airport_pointer) {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Statistic for a specific airport - " + airport_pointer->getCode();
         vector<string> options = {"Any airline", "A specific airline"};
         int input = this->print_menu_and_get_choice_input(current_menu, options);
         switch (input) {
