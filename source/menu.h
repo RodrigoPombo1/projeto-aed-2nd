@@ -54,6 +54,8 @@ private:
     void statistics_for_a_specific_airline_get_airline();
     void statistics_for_a_specific_airline(Airline *airline_pointer);
 
+    void get_number_of_countries_airport_vec_flies_to(std::vector<Airport*> airports, std::string source);
+
     void get_airline_to_filter_flights(std::vector<Flight> flights);
 
     // global statistics
@@ -63,20 +65,6 @@ private:
     void get_airports_that_are_essential_to_the_network();
     void get_maximum_trip_and_corresponding_pair_of_source_destination_airports();
 
-    // statistics for a specific airport/city
-    void any_airline_or_a_specific_airline();
-
-    void get_specific_airline();
-
-    // statistics for a specific airport/city/airline
-    void get_either_airports_cities_or_airlines_to_consider();
-    void get_maximum_number_of_stops();
-
-    // get airline/city/airport/geographical coordinates
-    void get_airline();
-    void get_city();
-    void get_airport();
-    void get_geographical_coordinates();
 public:
     menu();
 };

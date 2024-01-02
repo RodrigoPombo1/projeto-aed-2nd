@@ -257,12 +257,52 @@ void menu::statistics_for_a_specific_airport(Airport *airport_pointer) {
             case 1:
                 this->statistics_for_a_specific_airport_want_airline(airport_pointer);
                 break;
-            case 2:
-//                this->specific_airport_get_number_of_countries_it_flies_to;
+            case 2: {
+                vector<Airport *> airport_pointer_vec = {airport_pointer};
+                this->get_number_of_countries_airport_vec_flies_to(airport_pointer_vec, airport_pointer->getCode());
                 break;
+            }
             case 3:
 //                this->specific_airport_get_number_of_reachable_destinations;
                 break;
+            default:
+                cout << "Invalid input, please try again\n";
+                break;
+        }
+    }
+}
+
+void menu::get_number_of_countries_airport_vec_flies_to(std::vector<Airport *> airports, std::string source) {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Statistics for - " + source;
+        int countries_airport_vec_flies_to = 0;
+        unordered_map<string, bool> countries;
+        for (Airport *&airport_pointer: airports) {
+            vector<Flight> flights_from_airport = Request.get_flights_from_airport_pointer(airport_pointer);
+            for (Flight &flight: flights_from_airport) {
+                string country_destination_of_current_flight = flight.getTarget()->getCountry();
+                if (country_destination_of_current_flight != airport_pointer->getCountry()) {
+                    if (countries.find(country_destination_of_current_flight) == countries.end()) {
+                        countries_airport_vec_flies_to++;
+                        countries.insert({country_destination_of_current_flight, true});
+                    }
+                }
+            }
+        }
+        string res = "There are " + to_string(countries_airport_vec_flies_to)
+                     + " countries this airport flies to in total.";
+        vector<string> vec_res;
+        for (auto country : countries) {
+            vec_res.push_back(country.first);
+        }
+        vec_res.push_back(res);
+        int input2 = this->print_result_and_get_choice_input(current_menu, vec_res);
+        switch (input2) {
+            case -1:
+                this->go_back_to_main_menu = true;
+                return;
+            case 0:
+                return;
             default:
                 cout << "Invalid input, please try again\n";
                 break;
@@ -499,7 +539,6 @@ void menu::statistics_for_a_specific_city_want_airline(City *city_pointer) {
                 break;
         }
     }
-
 }
 
 void menu::statistics_for_a_specific_city_get_airline(City *city_pointer) {
@@ -562,7 +601,7 @@ void menu::statistics_for_a_specific_city(City *city_pointer) {
                 this->statistics_for_a_specific_city_want_airline(city_pointer);
                 break;
             case 2:
-//                this->specific_city_get_number_of_countries_it_flies_to;
+                this->get_number_of_countries_airport_vec_flies_to(city_pointer->getAirports(), city_pointer->getCode());
                 break;
             case 3:
 //                this->specific_city_get_number_of_reachable_destinations;
