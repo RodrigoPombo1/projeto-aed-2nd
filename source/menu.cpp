@@ -444,7 +444,7 @@ void menu::statistics_for_a_specific_city_get_city() {
         if (city_pointer == nullptr) {
             cout << "City with code " << city + "-" + country << " does not exist\n";
         } else {
-            this->statistics_for_a_specific_city_want_airline(city_pointer);
+            this->statistics_for_a_specific_city(city_pointer);
         }
     }
 }
@@ -461,7 +461,7 @@ void menu::statistics_for_a_specific_city_want_airline(City *city_pointer) {
             case 0:
                 return;
             case 1:
-                this->statistics_for_a_specific_city(city_pointer, nullptr);
+                this->statistics_for_a_specific_city_show_number_of_flights_out(city_pointer, nullptr);
                 break;
             case 2:
                 this->statistics_for_a_specific_city_get_airline(city_pointer);
@@ -488,13 +488,37 @@ void menu::statistics_for_a_specific_city_get_airline(City *city_pointer) {
             if (airline_pointer == nullptr) {
                 cout << "Airline with code " << airline_code << " does not exist\n";
             } else {
-                this->statistics_for_a_specific_city(city_pointer, airline_pointer);
+                this->statistics_for_a_specific_city_show_number_of_flights_out(city_pointer, airline_pointer);
             }
         }
     }
 }
 
-void menu::statistics_for_a_specific_city(City *city_pointer, Airline *airline_pointer) {
+void menu::statistics_for_a_specific_city_show_number_of_flights_out(City *city_pointer, Airline *airline_pointer) {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Statistics for a specific city - " + city_pointer->getCode();
+        int flights_from_city = 0;
+        for (Airport *&airport_pointer: city_pointer->getAirports()) {
+            flights_from_city += Request.get_flights_from_airport_pointer(airport_pointer).size();
+        }
+        string res = "There are " + to_string(flights_from_city)
+                     + " flights from this city in total.";
+        vector<string> vec_res = {res};
+        int input2 = this->print_result_and_get_choice_input(current_menu, vec_res);
+        switch (input2) {
+            case -1:
+                this->go_back_to_main_menu = true;
+                return;
+            case 0:
+                return;
+            default:
+                cout << "Invalid input, please try again\n";
+                break;
+        }
+    }
+}
+
+void menu::statistics_for_a_specific_city(City *city_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific city - " + city_pointer->getCode();
         vector<string> options = {"Number of flights out of the city", "Number of countries the city has flights to",
@@ -506,27 +530,9 @@ void menu::statistics_for_a_specific_city(City *city_pointer, Airline *airline_p
                 return;
             case 0:
                 return;
-            case 1: {
-                int flights_from_city = 0;
-                for (Airport *&airport_pointer: city_pointer->getAirports()) {
-                    flights_from_city += Request.get_flights_from_airport_pointer(airport_pointer).size();
-                }
-                string res = "There are " + to_string(flights_from_city)
-                             + " flights from this city in total.";
-                vector<string> vec_res = {res};
-                int input2 = this->print_result_and_get_choice_input(current_menu, vec_res);
-                switch (input2) {
-                    case -1:
-                        this->go_back_to_main_menu = true;
-                        return;
-                    case 0:
-                        break;
-                    default:
-                        cout << "Invalid input, please try again\n";
-                        break;
-                }
+            case 1:
+                this->statistics_for_a_specific_city_want_airline(city_pointer);
                 break;
-            }
             case 2:
 //                this->specific_city_get_number_of_countries_it_flies_to;
                 break;

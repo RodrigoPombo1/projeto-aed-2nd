@@ -48,7 +48,8 @@ private:
     void statistics_for_a_specific_city_get_city();
     void statistics_for_a_specific_city_want_airline(City *city_pointer);
     void statistics_for_a_specific_city_get_airline(City *city_pointer);
-    void statistics_for_a_specific_city(City *city_pointer, Airline *airline_pointer);
+    void statistics_for_a_specific_city_show_number_of_flights_out(City *city_pointer, Airline *airline_pointer);
+    void statistics_for_a_specific_city(City *city_pointer);
     void statistics_for_a_specific_airline_get_airline();
     void statistics_for_a_specific_airline(Airline *airline_pointer);
 
