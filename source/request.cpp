@@ -6,16 +6,26 @@
 
 using namespace std;
 
+/// @brief Gets all the airports and airlines
+/// complexity: O(n1+m1) + O(n2+m2) + O(n3+m3) (check csv_reader class)
 request::request() {
     csvReader = csv_reader();
     this->airports = csvReader.getAirports();
     this->airlines = csvReader.getAirlines();
 }
 
+/// @brief Gets the flights leaving from an airport using it's pointer
+/// complexity: O(1)
+/// @param airport_pointer pointer to the airport
+/// @return vector with the flights leaving from the airport
 std::vector<Flight> request::get_flights_from_airport_pointer(Airport *airport_pointer) {
     return airport_pointer->getFlights();
 }
 
+/// @brief Gets pointer to an aiport using it's code
+/// complexity: O(1)
+/// @param airport_code code of the airport
+/// @return pointer to the airport
 Airport* request::get_airport_pointer_from_airport_code(std::string airport_code) {
     if (this->airports.find(airport_code) == this->airports.end()) {
         return nullptr;
@@ -23,10 +33,16 @@ Airport* request::get_airport_pointer_from_airport_code(std::string airport_code
     return &this->airports.at(airport_code);
 }
 
+/// @brief Gets the total number of airports
+/// complexity: O(1)
+/// @return total number of airports
 int request::get_total_number_of_airports() {
     return this->airports.size();
 }
 
+/// @brief Gets the total number of flights
+/// complexity: O(n) (n = number of airports)
+/// @return total number of flights
 int request::get_total_number_of_flights_from_all_airports() {
     int total_number_of_flights = 0;
     for (auto &airport : this->airports) {
@@ -35,6 +51,10 @@ int request::get_total_number_of_flights_from_all_airports() {
     return total_number_of_flights;
 }
 
+/// @brief Gets the airports with the top air traffic capacity limited by a number chosen (how many the user wants to see)
+/// complexity: O(n*log(n)) (n = number of airports)
+/// @param top_number_of_airports number of airports the user wants to see
+/// @return vector of pairs with the airport and it's air traffic capacity
 vector<pair<int, Airport>> request::get_airports_with_top_air_traffic_capacity(int top_number_of_airports) {
     multimap<int, Airport> airports_by_air_traffic_capacity;
     for (auto &airport : this->airports) {
@@ -53,6 +73,10 @@ vector<pair<int, Airport>> request::get_airports_with_top_air_traffic_capacity(i
     return res;
 }
 
+/// @brief Gets pointer to an airline using it's code
+/// complexity: O(1)
+/// @param airline_code code of the airline
+/// @return pointer to the airline
 Airline* request::get_airline_pointer_from_airline_code(std::string airline_code) {
     if (this->airlines.find(airline_code) == this->airlines.end()) {
         return nullptr;
@@ -60,6 +84,10 @@ Airline* request::get_airline_pointer_from_airline_code(std::string airline_code
     return &this->airlines.at(airline_code);
 }
 
+/// @brief Gets all the flights from an airline
+/// complexity: O(n*m) (n = number of airports, m = maximum number of flights of the airline leaving an airport )
+/// @param airline_pointer pointer to the airline
+/// @return total number of flights of the airline
 int request::get_number_flights_from_airline_pointer(Airline *airline_pointer) {
     int total_number_of_flights = 0;
     string airline_code = airline_pointer->getCode();
@@ -74,6 +102,12 @@ int request::get_number_flights_from_airline_pointer(Airline *airline_pointer) {
     return total_number_of_flights;
 }
 
+/// @brief Gets the flight options for the wanted sources, targets and airlines
+/// complexity: O(n+m+s+d) (n = number of airports, m = maximum number of flights leaving an airport, s = number of sources, t = number of targets)
+/// @param airport_sources vector with all airport soyrces we want to search
+/// @param airport_destinations vector with all airport targets we ant to search
+/// @param airlines vector with all teh airlines we want to search
+/// @return pair of vector with the flight and a pointer to the airport of the best flight options
 pair<vector<Flight>, Airport*> request::get_flights_best_option_bfs(vector<Airport*> airport_sources,
                                                                      vector<Airport*> airport_destinations,
                                                                      vector<Airline*> airlines) {
