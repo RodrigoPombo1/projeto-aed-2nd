@@ -493,13 +493,13 @@ void menu::best_flight_option() {
             case 0:
                 return;
             case 1:
-                this->best_flight_option_get_airport();
+                this->best_flight_option_get_airport_source();
                 break;
             case 2:
 //                this->best_flight_option_get_city();
                 break;
             case 3:
-//                this->best_flight_option_get_geographical_coordinates();
+//                this->best_flight_option_get_geographical_coordinates_source();
                 break;
             default:
                 cout << "Invalid input, please try again\n";
@@ -508,7 +508,7 @@ void menu::best_flight_option() {
     }
 }
 
-void menu::best_flight_option_get_airport() {
+void menu::best_flight_option_get_airport_source() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Best flight option - source - enter airport code";
         string airport_code = this->print_menu_and_get_string_input(current_menu);
@@ -522,15 +522,17 @@ void menu::best_flight_option_get_airport() {
             if (airport_pointer == nullptr) {
                 cout << "Airport with code " << airport_code << " does not exist\n";
             } else {
-                this->best_flight_option_airport_select_airline(airport_pointer);
+                vector<Airport*> airport_pointer_vec = {airport_pointer};
+                string vector_airport_pointer_code = airport_pointer->getCode();
+                this->best_flight_option_select_airline(airport_pointer_vec, vector_airport_pointer_code);
             }
         }
     }
 }
 
-void menu::best_flight_option_airport_select_airline(Airport *airport_pointer) {
+void menu::best_flight_option_select_airline(vector<Airport*> vector_airport_pointer, string source_code) {
     while (!this->go_back_to_main_menu) {
-        string current_menu = "Best flight option - source - " + airport_pointer->getCode() + " - select airline";
+        string current_menu = "Best flight option - source - " + source_code + " - select airline";
         vector<string> options = {"Any airline", "A specific airline", "As few airlines as possible"};
         int input = this->print_menu_and_get_choice_input(current_menu, options);
         switch (input) {
@@ -540,10 +542,10 @@ void menu::best_flight_option_airport_select_airline(Airport *airport_pointer) {
             case 0:
                 return;
             case 2:
-                this->best_flight_option_airport_get_airline(airport_pointer);
+                this->best_flight_option_get_airline(vector_airport_pointer, source_code);
                 break;
             case 1:
-                this->best_flight_option_airport_select_destination(airport_pointer, nullptr);
+                this->best_flight_option_select_destination(vector_airport_pointer, source_code, nullptr);
                 break;
             case 3:
 //                this->best_flight_option_airport_select_destination(airport_pointer, nullptr, true);  // ???
@@ -555,9 +557,9 @@ void menu::best_flight_option_airport_select_airline(Airport *airport_pointer) {
     }
 }
 
-void menu::best_flight_option_airport_get_airline(Airport *airport_pointer) {
+void menu::best_flight_option_get_airline(vector<Airport*> vector_airport_pointer, string source_code) {
     while (!this->go_back_to_main_menu) {
-        string current_menu = "Best flight option - source - " + airport_pointer->getCode() + " - enter airline code";
+        string current_menu = "Best flight option - source - " + source_code + " - enter airline code";
         string airline_code = this->print_menu_and_get_string_input(current_menu);
         if (airline_code == "0") {
             return;
@@ -569,15 +571,15 @@ void menu::best_flight_option_airport_get_airline(Airport *airport_pointer) {
             if (airline_pointer == nullptr) {
                 cout << "Airline with code " << airline_code << " does not exist\n";
             } else {
-                this->best_flight_option_airport_select_destination(airport_pointer, airline_pointer);
+                this->best_flight_option_select_destination(vector_airport_pointer, source_code, airline_pointer);
             }
         }
     }
 }
 
-void menu::best_flight_option_airport_select_destination(Airport *airport_pointer, Airline *airline_pointer) {
+void menu::best_flight_option_select_destination(vector<Airport*> vector_airport_pointer, string source_code, Airline *airline_pointer) {
     while (!this->go_back_to_main_menu) {
-        string current_menu = "Best flight option - source - " + airport_pointer->getCode() + " - select destination";
+        string current_menu = "Best flight option - source - " + source_code + " - select destination";
         vector<string> options = {"Airport code", "City", "Geographical coordinates"};
         int input = this->print_menu_and_get_choice_input(current_menu, options);
         switch (input) {
@@ -587,13 +589,13 @@ void menu::best_flight_option_airport_select_destination(Airport *airport_pointe
             case 0:
                 return;
             case 1:
-                this->best_flight_option_airport_get_destination(airport_pointer, airline_pointer);
+                this->best_flight_option_get_airport_destination(vector_airport_pointer, source_code, airline_pointer);
                 break;
             case 2:
-//                this->best_flight_option_city_get_destination(airport_pointer, airline_pointer);
+//                this->best_flight_option_get_city_destination(airport_pointer, airline_pointer);
                 break;
             case 3:
-//                this->best_flight_option_geographical_coordinates_get_destination(airport_pointer, airline_pointer);
+//                this->best_flight_option_get_geographical_coordinates_destination(vector_airport_pointer, source_code, airline_pointer);
                 break;
             default:
                 cout << "Invalid input, please try again\n";
@@ -602,9 +604,9 @@ void menu::best_flight_option_airport_select_destination(Airport *airport_pointe
     }
 }
 
-void menu::best_flight_option_airport_get_destination(Airport *airport_pointer, Airline *airline_pointer) {
+void menu::best_flight_option_get_airport_destination(vector<Airport*> vector_airport_pointer, string source_code, Airline *airline_pointer) {
     while (!this->go_back_to_main_menu) {
-        string current_menu = "Best flight option - source - " + airport_pointer->getCode() + " - enter destination airport code";
+        string current_menu = "Best flight option - source - " + source_code + " - enter destination airport code";
         string destination_airport_code = this->print_menu_and_get_string_input(current_menu);
         if (destination_airport_code == "0") {
             return;
@@ -616,19 +618,23 @@ void menu::best_flight_option_airport_get_destination(Airport *airport_pointer, 
             if (destination_airport_pointer == nullptr) {
                 cout << "Airport with code " << destination_airport_code << " does not exist\n";
             } else {
-                this->best_flight_option_airport_to_airport(airport_pointer, airline_pointer, destination_airport_pointer);
+                vector<Airport*> destination_airport_pointer_vec = {destination_airport_pointer};
+                string destination_code = "";
+                for (Airport* &airport_pointer : destination_airport_pointer_vec) {
+                    destination_code += airport_pointer->getCode();
+                }
+                this->best_flight_option_airport_to_airport(vector_airport_pointer, source_code, airline_pointer,
+                                                            destination_airport_pointer_vec, destination_code);
             }
         }
     }
 }
 
-void menu::best_flight_option_airport_to_airport(Airport *airport_pointer, Airline *airline_pointer,
-                                                   Airport *destination_pointer) {
+void menu::best_flight_option_airport_to_airport(vector<Airport*> airport_pointer_vec, string source_code, Airline *airline_pointer,
+                                                   vector<Airport*> destination_pointer_vec, string destination_code) {
     while (!this->go_back_to_main_menu) {
-        string current_menu = "Best flight option - source - " + airport_pointer->getCode() + " - destination - "
-                              + destination_pointer->getCode();
-        vector<Airport*> airport_pointer_vec = {airport_pointer};
-        vector<Airport*> destination_pointer_vec = {destination_pointer};
+        string current_menu = "Best flight option - source - " + source_code + " - destination - "
+                              + destination_code;
         vector<Airline*> airline_pointer_vec = {airline_pointer};
         pair<vector<Flight>, Airport*> flights = Request.get_flights_best_option_bfs(airport_pointer_vec,
                                                                  destination_pointer_vec,
@@ -649,12 +655,14 @@ void menu::best_flight_option_airport_to_airport(Airport *airport_pointer, Airli
             }
         }
         else {
-            string current_selection = "The best flight option is: ";
             vector<string> vec_res;
+            double full_distance = 0;
             for (Flight flight : flights.first) {
                 vec_res.push_back(flight.toString());
+                full_distance += flight.getDistance();
             }
-            int input = this->print_result_and_get_choice_input(current_selection, vec_res);
+            vec_res.push_back("Total distance: " + to_string(full_distance));
+            int input = this->print_result_and_get_choice_input(current_menu, vec_res);
             switch(input) {
                 case -1:
                     this->go_back_to_main_menu = true;
