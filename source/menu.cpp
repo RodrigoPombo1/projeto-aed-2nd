@@ -87,7 +87,7 @@ string menu::print_menu_and_get_string_input(string current_selection) {
 
         this->print_separator();
 
-        cout << "Chose one of the options above by entering the corresponding number and press enter\n";
+        cout << "Chose one of the options above by entering a string or the corresponding number and press enter\n";
         cin >> input;
         if (input != "") {
             valid_input = true;
