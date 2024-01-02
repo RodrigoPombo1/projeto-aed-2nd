@@ -6,12 +6,14 @@
 
 using namespace std;
 
-/// @brief Gets all the airports and airlines
+/// @brief Gets all the airports, airlines and cities
 /// complexity: O(n1+m1) + O(n2+m2) + O(n3+m3) (check csv_reader class)
 request::request() {
     csvReader = csv_reader();
     this->airports = csvReader.getAirports();
     this->airlines = csvReader.getAirlines();
+    this->cities = csvReader.getCities();
+
 }
 
 /// @brief Gets the flights leaving from an airport using it's pointer

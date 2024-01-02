@@ -40,7 +40,7 @@ void csv_reader::read_airlines_csv() {
     }
 }
 
-/// @brief Reads the airports csv file and gets all the information about each airport
+/// @brief Reads the airports csv file and gets all the information about each airport, while simultaneously creating the cities or adding the airports to the cities
 /// complexity: O(n2*m2) (n2 = number of lines in the csv file, m2 = number of cells in each line)
 void csv_reader::read_airports_csv() {
     ifstream file(this->airports_csv_file_name);
@@ -58,6 +58,16 @@ void csv_reader::read_airports_csv() {
                             airport_elements[2],airport_elements[3],
                             stod(airport_elements[4]),stod(airport_elements[5]));
             this->airports.insert({airport.getCode(), airport});
+
+            // add cities
+            string current_airport_city_code = airport.getCity() + "-" + airport.getCountry();
+            if (this->cities.find(current_airport_city_code) == this->cities.end()) {
+                City city(airport.getCity(), airport.getCountry());
+                city.addAirport(&this->airports.at(airport.getCode()));
+                this->cities.insert({city.getCode(), city});
+            } else {
+                this->cities.at(current_airport_city_code).addAirport(&this->airports.at(airport.getCode()));
+            }
         }
         file.close();
     }
@@ -101,14 +111,20 @@ Airport* csv_reader::get_airport_pointer_by_code(string code) {
 
 /// @brief Gets all the airports
 /// complexity: O(1)
-/// @return map with all airports
+/// @return unordered map with all airports
 std::unordered_map<std::string, Airport> csv_reader::getAirports() {
     return this->airports;
 }
 
 /// @brief Gets all the airlines
 /// complexity: O(1)
-/// @return map with all airlines
+/// @return unordered map with all airlines
 std::unordered_map<std::string, Airline> csv_reader::getAirlines() {
     return this->airlines;
+}
+/// @brief Gets all the cities
+/// complexity: O(1)
+/// @return unordered map with all cities
+std::unordered_map<std::string, City> csv_reader::getCities() {
+    return this->cities;
 }

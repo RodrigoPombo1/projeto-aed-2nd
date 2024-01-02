@@ -11,6 +11,7 @@
 #include "Airport.h"
 #include "Flight.h"
 #include "Airline.h"
+#include "City.h"
 
 class csv_reader {
 private:
@@ -22,11 +23,13 @@ private:
     void read_flights_csv();
     std::unordered_map<std::string, Airport> airports;
     std::unordered_map<std::string, Airline> airlines;
+    std::unordered_map<std::string, City> cities;
     Airport* get_airport_pointer_by_code(std::string code);
 public:
     csv_reader();
     std::unordered_map<std::string, Airport> getAirports();
     std::unordered_map<std::string, Airline> getAirlines();
+    std::unordered_map<std::string, City> getCities();
 };
 
 #endif //PROJETO_AED_2ND_CSV_READER_H

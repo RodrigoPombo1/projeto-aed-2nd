@@ -98,6 +98,13 @@ build CMakeFiles/projeto_aed_2nd.dir/source/Airline.cpp.obj: CXX_COMPILER__proje
   OBJECT_DIR = CMakeFiles\projeto_aed_2nd.dir
   OBJECT_FILE_DIR = CMakeFiles\projeto_aed_2nd.dir\source
 
+build CMakeFiles/projeto_aed_2nd.dir/source/City.cpp.obj: CXX_COMPILER__projeto_aed_2nd_unscanned_Debug C$:/Users/rodri/Documents/GitHub/projeto-aed-2nd/source/City.cpp || cmake_object_order_depends_target_projeto_aed_2nd
+  DEP_FILE = CMakeFiles\projeto_aed_2nd.dir\source\City.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/rodri/Documents/GitHub/projeto-aed-2nd/source
+  OBJECT_DIR = CMakeFiles\projeto_aed_2nd.dir
+  OBJECT_FILE_DIR = CMakeFiles\projeto_aed_2nd.dir\source
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target projeto_aed_2nd
@@ -106,7 +113,7 @@ build CMakeFiles/projeto_aed_2nd.dir/source/Airline.cpp.obj: CXX_COMPILER__proje
 #############################################
 # Link the executable projeto_aed_2nd.exe
 
-build projeto_aed_2nd.exe: CXX_EXECUTABLE_LINKER__projeto_aed_2nd_Debug CMakeFiles/projeto_aed_2nd.dir/main.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/csv_reader.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/menu.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/request.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/Airport.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/Flight.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/Airline.cpp.obj
+build projeto_aed_2nd.exe: CXX_EXECUTABLE_LINKER__projeto_aed_2nd_Debug CMakeFiles/projeto_aed_2nd.dir/main.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/csv_reader.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/menu.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/request.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/Airport.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/Flight.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/Airline.cpp.obj CMakeFiles/projeto_aed_2nd.dir/source/City.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\projeto_aed_2nd.dir
