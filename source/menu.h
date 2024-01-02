@@ -30,15 +30,15 @@ private:
     // best_flight_option
     void best_flight_option_get_airport_source();
 //    void best_flight_option_get_city_source();
-//    void best_flight_option_get_geographical_coordinates_source();
+    void best_flight_option_get_geographical_coordinates_source();
     void best_flight_option_select_airline(std::vector<Airport*> vector_airport_pointer, std::string source_code);
     void best_flight_option_get_airline(std::vector<Airport*> vector_airport_pointer, std::string source_code);
     void best_flight_option_select_destination(std::vector<Airport*> vector_airport_pointer, std::string source_code, Airline *airline_pointer);
     void best_flight_option_get_airport_destination(std::vector<Airport*> vector_airport_pointer, std::string source_code, Airline *airline_pointer);
 //    void best_flight_option_get_city_destination(std::vector<Airport*> vector_airport_pointer, std::string source_code, Airline *airline_pointer);
-//    void best_flight_option_get_geographical_coordinates_destination(std::vector<Airport*> vector_airport_pointer,
-//                                                                     std::string source_code,
-//                                                                     Airline *airline_pointer);
+    void best_flight_option_get_geographical_coordinates_destination(std::vector<Airport*> vector_airport_pointer,
+                                                                     std::string source_code,
+                                                                     Airline *airline_pointer);
     void best_flight_option_airport_to_airport(std::vector<Airport*> vector_airport_pointer, std::string source_code,
                                                Airline *airline_pointer, std::vector<Airport*> vector_airport_destinations_pointer, std::string destination_code);
     // statistics of the network

@@ -499,7 +499,7 @@ void menu::best_flight_option() {
 //                this->best_flight_option_get_city();
                 break;
             case 3:
-//                this->best_flight_option_get_geographical_coordinates_source();
+                this->best_flight_option_get_geographical_coordinates_source();
                 break;
             default:
                 cout << "Invalid input, please try again\n";
@@ -526,6 +526,32 @@ void menu::best_flight_option_get_airport_source() {
                 string vector_airport_pointer_code = airport_pointer->getCode();
                 this->best_flight_option_select_airline(airport_pointer_vec, vector_airport_pointer_code);
             }
+        }
+    }
+}
+
+void menu::best_flight_option_get_geographical_coordinates_source() {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Best flight option - source - enter geographical coordinates";
+        string latitude = this->print_menu_and_get_string_input("Enter latitude");
+        if (latitude == "0") {
+            return;
+        } else if (latitude == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        string longitude = this->print_menu_and_get_string_input("Enter longitude");
+        if (longitude == "0") {
+            return;
+        } else if (longitude == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        vector<Airport*> airport_pointer_vec = this->Request.get_vector_airport_pointer_from_geographical_coordinates(stod(latitude), stod(longitude));
+        if (airport_pointer_vec.empty()) {
+            cout << "No airports found with these geographical coordinates\n";
+        } else {
+            this->best_flight_option_select_airline(airport_pointer_vec, latitude + "-" + longitude);
         }
     }
 }
@@ -595,7 +621,7 @@ void menu::best_flight_option_select_destination(vector<Airport*> vector_airport
 //                this->best_flight_option_get_city_destination(airport_pointer, airline_pointer);
                 break;
             case 3:
-//                this->best_flight_option_get_geographical_coordinates_destination(vector_airport_pointer, source_code, airline_pointer);
+                this->best_flight_option_get_geographical_coordinates_destination(vector_airport_pointer, source_code, airline_pointer);
                 break;
             default:
                 cout << "Invalid input, please try again\n";
@@ -626,6 +652,36 @@ void menu::best_flight_option_get_airport_destination(vector<Airport*> vector_ai
                 this->best_flight_option_airport_to_airport(vector_airport_pointer, source_code, airline_pointer,
                                                             destination_airport_pointer_vec, destination_code);
             }
+        }
+    }
+}
+
+void menu::best_flight_option_get_geographical_coordinates_destination(std::vector<Airport *> vector_airport_pointer,
+                                                                       std::string source_code,
+                                                                       Airline *airline_pointer) {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Best flight option - source - " + source_code + " - enter geographical coordinates";
+        string latitude = this->print_menu_and_get_string_input("Enter latitude");
+        if (latitude == "0") {
+            return;
+        } else if (latitude == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        string longitude = this->print_menu_and_get_string_input("Enter longitude");
+        if (longitude == "0") {
+            return;
+        } else if (longitude == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        vector<Airport*> destination_airport_pointer_vec = this->Request.get_vector_airport_pointer_from_geographical_coordinates(stod(latitude), stod(longitude));
+        if (destination_airport_pointer_vec.empty()) {
+            cout << "No airports found with these geographical coordinates\n";
+        } else {
+            this->best_flight_option_airport_to_airport(vector_airport_pointer, source_code, airline_pointer,
+                                                        destination_airport_pointer_vec,
+                                                        latitude + "-" + longitude);
         }
     }
 }

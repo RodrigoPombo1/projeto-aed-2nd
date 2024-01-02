@@ -219,3 +219,38 @@ pair<vector<Flight>, Airport*> request::get_flights_best_option_bfs(vector<Airpo
     pair<vector<Flight>, Airport*> res(flights, nullptr);
     return res;
 }
+
+vector<Airport*> request::get_vector_airport_pointer_from_geographical_coordinates(double latitude, double longitude) {
+    vector<Airport*> res;
+    double min_airport_distance_difference = std::numeric_limits<double>::max();
+    for (auto &airport : this->airports) {
+        double current_airport_distance_difference = calculate_distance(airport.second.getLatitude(),
+                                                                        airport.second.getLongitude(),
+                                                                        latitude, longitude);
+        if (current_airport_distance_difference < min_airport_distance_difference) {
+            res.clear();
+            res.push_back(&airport.second);
+            min_airport_distance_difference = current_airport_distance_difference;
+        }
+        else if (current_airport_distance_difference == min_airport_distance_difference) {
+            res.push_back(&airport.second);
+        }
+    }
+    return res;
+}
+
+double request::calculate_distance(double latitude1, double longitude1, double latitude2, double longitude2) {
+    double dLat = (latitude2 - latitude1) * M_PI / 180.0;
+    double dLon = (longitude2 - longitude1) * M_PI / 180.0;
+
+    latitude1 = (latitude1) * M_PI / 180.0;
+    latitude2 = (latitude2) * M_PI / 180.0;
+
+    double a = pow(sin(dLat / 2), 2) +
+               pow(sin(dLon / 2), 2) *
+               cos(latitude1) * cos(latitude2);
+
+    double rad = 6371;
+    double c = 2 * asin(sqrt(a));
+    return rad * c;
+}

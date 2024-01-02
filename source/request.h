@@ -8,6 +8,7 @@
 #include <vector>
 #include <map>
 #include <queue>
+#include <limits>
 #include "csv_reader.h"
 
 class request {
@@ -16,7 +17,7 @@ private:
     std::unordered_map<std::string, Airline> airlines;
     csv_reader csvReader;
     // functions used internally by request
-
+    double calculate_distance(double latitude1, double longitude1, double latitude2, double longitude2);
 public:
     request();
 
@@ -31,6 +32,7 @@ public:
     std::pair<std::vector<Flight>, Airport*> get_flights_best_option_bfs(std::vector<Airport*> source,
                                                                      std::vector<Airport*> destination,
                                                                      std::vector<Airline*> airline);
+    std::vector<Airport*> get_vector_airport_pointer_from_geographical_coordinates(double latitude, double longitude);
 };
 
 #endif //PROJETO_AED_2ND_REQUEST_H
