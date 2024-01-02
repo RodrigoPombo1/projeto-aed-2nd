@@ -174,7 +174,7 @@ void menu::statistics_of_the_network() {
                 this->statistics_for_a_specific_airport_get_airport();
                 break;
             case 3:
-//                this->statistics_for_a_specific_city();
+                this->statistics_for_a_specific_city_get_city();
                 break;
             case 4:
                 this->statistics_for_a_specific_airline_get_airline();
@@ -422,6 +422,124 @@ void menu::get_airports_with_top_air_traffic_capacity() {
     }
 }
 
+void menu::statistics_for_a_specific_city_get_city() {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Statistics for a specific city - enter city";
+        string city = this->print_menu_and_get_string_input("Enter city");
+        if (city == "0") {
+            return;
+        } else if (city == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        string country = this->print_menu_and_get_string_input("Enter country");
+        if (country == "0") {
+            return;
+        } else if (country == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        string city_code = city + "-" + country;
+        City *city_pointer = this->Request.get_city_pointer_from_city_code(city_code);
+        if (city_pointer == nullptr) {
+            cout << "City with code " << city + "-" + country << " does not exist\n";
+        } else {
+            this->statistics_for_a_specific_city_want_airline(city_pointer);
+        }
+    }
+}
+
+void menu::statistics_for_a_specific_city_want_airline(City *city_pointer) {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Statistics for a specific city - " + city_pointer->getCode();
+        vector<string> options = {"Any airline", "A specific airline"};
+        int input = this->print_menu_and_get_choice_input(current_menu, options);
+        switch (input) {
+            case -1:
+                this->go_back_to_main_menu = true;
+                return;
+            case 0:
+                return;
+            case 1:
+                this->statistics_for_a_specific_city(city_pointer, nullptr);
+                break;
+            case 2:
+                this->statistics_for_a_specific_city_get_airline(city_pointer);
+                break;
+            default:
+                cout << "Invalid input, please try again\n";
+                break;
+        }
+    }
+
+}
+
+void menu::statistics_for_a_specific_city_get_airline(City *city_pointer) {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Statistics for a specific city - " + city_pointer->getCode() + " - enter airline code";
+        string airline_code = this->print_menu_and_get_string_input(current_menu);
+        if (airline_code == "0") {
+            return;
+        } else if (airline_code == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        } else {
+            Airline *airline_pointer = this->Request.get_airline_pointer_from_airline_code(airline_code);
+            if (airline_pointer == nullptr) {
+                cout << "Airline with code " << airline_code << " does not exist\n";
+            } else {
+                this->statistics_for_a_specific_city(city_pointer, airline_pointer);
+            }
+        }
+    }
+}
+
+void menu::statistics_for_a_specific_city(City *city_pointer, Airline *airline_pointer) {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Statistics for a specific city - " + city_pointer->getCode();
+        vector<string> options = {"Number of flights out of the city", "Number of countries the city has flights to",
+                                  "Number of reachable destinations"};
+        int input = this->print_menu_and_get_choice_input(current_menu, options);
+        switch (input) {
+            case -1:
+                this->go_back_to_main_menu = true;
+                return;
+            case 0:
+                return;
+            case 1: {
+                int flights_from_city = 0;
+                for (Airport *&airport_pointer: city_pointer->getAirports()) {
+                    flights_from_city += Request.get_flights_from_airport_pointer(airport_pointer).size();
+                }
+                string res = "There are " + to_string(flights_from_city)
+                             + " flights from this city in total.";
+                vector<string> vec_res = {res};
+                int input2 = this->print_result_and_get_choice_input(current_menu, vec_res);
+                switch (input2) {
+                    case -1:
+                        this->go_back_to_main_menu = true;
+                        return;
+                    case 0:
+                        break;
+                    default:
+                        cout << "Invalid input, please try again\n";
+                        break;
+                }
+                break;
+            }
+            case 2:
+//                this->specific_city_get_number_of_countries_it_flies_to;
+                break;
+            case 3:
+//                this->specific_city_get_number_of_reachable_destinations;
+                break;
+            default:
+                cout << "Invalid input, please try again\n";
+                break;
+        }
+    }
+}
+
 void menu::statistics_for_a_specific_airline_get_airline() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific airline - enter airline code";
@@ -445,8 +563,7 @@ void menu::statistics_for_a_specific_airline_get_airline() {
 void menu::statistics_for_a_specific_airline(Airline *airline_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific airline - " + airline_pointer->getCode();
-        vector<string> options = {"Number of flights", "Number of countries that it flies to",
-                                  "Number of reachable destinations"};
+        vector<string> options = {"Number of flights"};
         int input = this->print_menu_and_get_choice_input(current_menu, options);
         switch (input) {
             case -1:
@@ -471,12 +588,6 @@ void menu::statistics_for_a_specific_airline(Airline *airline_pointer) {
                         break;
                 }
             }
-            case 2:
-//                this->get_airports_cities_or_airlines_to_consider();
-                break;
-            case 3:
-//                this->get_maximum_number_of_stops();
-                break;
         }
     }
 }

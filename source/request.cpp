@@ -270,3 +270,10 @@ vector<Airport*> request::get_vector_airport_pointer_from_city(string city, stri
     }
     return res;
 }
+
+City* request::get_city_pointer_from_city_code(string city_code) {
+    if (this->cities.find(city_code) == this->cities.end()) {
+        return nullptr;
+    }
+    return &this->cities.at(city_code);
+}

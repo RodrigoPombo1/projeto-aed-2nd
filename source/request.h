@@ -25,6 +25,7 @@ public:
     // functions called by menu
     std::vector<Flight> get_flights_from_airport_pointer(Airport *airport_pointer);
     Airport* get_airport_pointer_from_airport_code(std::string airport_code);
+    City* get_city_pointer_from_city_code(std::string city_code);
     int get_total_number_of_airports();
     int get_total_number_of_flights_from_all_airports();
     std::vector<std::pair<int, Airport>> get_airports_with_top_air_traffic_capacity(int top_number_of_airports);
