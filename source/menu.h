@@ -28,10 +28,13 @@ private:
     void best_flight_option();
 
     // best_flight_option
-    void best_flight_option_select_from();
-    void best_flight_option_select_airline();
-    void best_flight_option_select_to();
-
+    void best_flight_option_get_airport();
+    void best_flight_option_airport_select_airline(Airport *airport_pointer);
+    void best_flight_option_airport_get_airline(Airport *airport_pointer);
+    void best_flight_option_airport_select_destination(Airport *airport_pointer, Airline *airline_pointer);
+    void best_flight_option_airport_get_destination(Airport *airport_pointer, Airline *airline_pointer);
+    void best_flight_option_airport_to_airport(Airport *airport_pointer, Airline *airline_pointer,
+                                                  Airport *destination_pointer);
     // statistics of the network
     void global_statistics();
     void statistics_for_a_specific_airport_get_airport();

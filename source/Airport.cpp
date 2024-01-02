@@ -45,6 +45,14 @@ vector<Flight> Airport::getFlights() {
     return this->flights;
 }
 
+std::vector<Flight*> Airport::getFlightsPointer() {
+    vector<Flight*> flightsPointer;
+    for (Flight &flight : this->flights) {
+        flightsPointer.push_back(&flight);
+    }
+    return flightsPointer;
+}
+
 void Airport::addFlight(Flight flight) {
     this->flights.push_back(flight);
 }

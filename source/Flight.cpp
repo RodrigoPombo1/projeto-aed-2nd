@@ -43,5 +43,6 @@ double Flight::calculate_distance(Airport* source) {
 }
 
 std::string Flight::toString() {
-    return this->target->getCode() + " " + this->airline + " " + std::to_string(this->distance);
+    return "destination airport: " + this->target->getName() + " (" + this->target->getCode() + ")"
+        + "\nairline: " + this->airline + "\ndistance: " + std::to_string(this->distance);
 }

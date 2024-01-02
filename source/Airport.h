@@ -29,6 +29,7 @@ public:
     double getLatitude();
     double getLongitude();
     std::vector<Flight> getFlights();
+    std::vector<Flight*> getFlightsPointer();
     void addFlight(Flight flight);
     std::string toString();
 

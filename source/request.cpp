@@ -73,3 +73,115 @@ int request::get_number_flights_from_airline_pointer(Airline *airline_pointer) {
     }
     return total_number_of_flights;
 }
+
+pair<vector<Flight>, Airport*> request::get_flights_best_option_bfs(vector<Airport*> airport_sources,
+                                                                     vector<Airport*> airport_destinations,
+                                                                     vector<Airline*> airlines) {
+    bool all_airlines_to_consider = false;
+    for (Airline* &current_airline : airlines) {
+        if (current_airline == nullptr) {
+            all_airlines_to_consider = true;
+            break;
+        }
+    }
+
+    // declaration of a map with the airlines to consider, so we can have constant lookup time
+    unordered_map<string, Airline*> airlines_to_consider;
+
+    if (!all_airlines_to_consider) {
+        // initialization of the airlines to consider
+        for (Airline* &current_airline : airlines) {
+            airlines_to_consider.insert({current_airline->getCode(), current_airline});
+        }
+    }
+    else {
+        // initialization of the airlines to consider
+        for (auto &airline : this->airlines) {
+            airlines_to_consider.insert({airline.second.getCode(), &airline.second});
+        }
+    }
+
+    // declaration of the nodes that will be used in this bfs
+    struct airport_node {
+        Airport *airport;
+        bool visited;
+        bool is_destination;
+        Flight *predecessor_flight;
+        airport_node *predecessor_airport_node;
+    };
+    unordered_map<string, airport_node> airport_nodes;
+
+    // initialization of the nodes
+    for (auto &airport : this->airports) {
+        airport_node current_node;
+        current_node.airport = &airport.second;
+        current_node.visited = false;
+        current_node.is_destination = false;
+        current_node.predecessor_flight = nullptr;
+        current_node.predecessor_airport_node = nullptr;
+        string airport_code = airport.first;
+        airport_nodes.insert({airport_code, current_node});
+    }
+
+    // set the nodes that are destinations
+    for (Airport* &airport : airport_destinations) {
+        airport_node current_node = airport_nodes.at(airport->getCode());
+        current_node.is_destination = true;
+        airport_nodes.at(airport->getCode()) = current_node;
+    }
+
+    // enqueueing the source nodes
+    queue<string> airport_nodes_string_code_queue;
+    for (Airport* &airport : airport_sources) {
+        airport_node current_node = airport_nodes.at(airport->getCode());
+        current_node.visited = true;
+        string current_node_code = airport->getCode();
+        airport_nodes.at(current_node_code) = current_node;
+        airport_nodes_string_code_queue.push(current_node_code);
+    }
+
+    vector<Flight> flights;
+
+    while (!airport_nodes_string_code_queue.empty()) {
+        string current_node_code = airport_nodes_string_code_queue.front();
+        airport_nodes_string_code_queue.pop();
+
+        airport_node* current_node = &airport_nodes.at(current_node_code);
+        if (current_node->is_destination) {
+            Flight *flight_predecessor_to_current_node = current_node->predecessor_flight;
+            while (flight_predecessor_to_current_node != nullptr) {
+                // add the flight to the vector of flights
+                flights.push_back(*flight_predecessor_to_current_node);
+                // make the predecessor node and flight the current node and flight
+                current_node = current_node->predecessor_airport_node;
+                flight_predecessor_to_current_node = current_node->predecessor_flight;
+            }
+            vector<Flight> flights_reversed(flights.rbegin(), flights.rend());
+            pair<vector<Flight>, Airport*> res(flights_reversed, current_node->airport);
+            return res;
+        }
+
+        int current_node_airport_size_flight_vector = current_node->airport->getFlights().size();
+        for (int i = 0; i < current_node_airport_size_flight_vector; i++) {
+            Flight *current_flight = current_node->airport->getFlightsPointer()[i];
+            // check if the airline is one of the airlines we want to consider
+            if (airlines_to_consider.find(current_flight->getAirline()) == airlines_to_consider.end()) {
+                continue;
+            }
+
+            Airport *current_flight_destination_airport = current_flight->getTarget();
+            airport_node *current_flight_destination_airport_node =
+                    &airport_nodes.at(current_flight_destination_airport->getCode());
+            if (!current_flight_destination_airport_node->visited) {
+                current_flight_destination_airport_node->visited = true;
+                current_flight_destination_airport_node->predecessor_flight = current_flight;
+                current_flight_destination_airport_node->predecessor_airport_node = current_node;
+                airport_nodes_string_code_queue.push(current_flight_destination_airport_node->airport->getCode());
+            }
+        }
+    }
+
+    // case where it isn't possible to reach the destination(s) from the source(s)
+    pair<vector<Flight>, Airport*> res(flights, nullptr);
+    return res;
+}
