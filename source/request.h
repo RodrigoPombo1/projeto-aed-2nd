@@ -16,6 +16,7 @@ private:
     std::unordered_map<std::string, Airport> airports;
     std::unordered_map<std::string, Airline> airlines;
     std::unordered_map<std::string, City> cities;
+    std::unordered_map<std::string, Country> countries;
     csv_reader csvReader;
     // functions used internally by request
     double calculate_distance(double latitude1, double longitude1, double latitude2, double longitude2);

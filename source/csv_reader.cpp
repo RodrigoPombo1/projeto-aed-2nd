@@ -40,7 +40,7 @@ void csv_reader::read_airlines_csv() {
     }
 }
 
-/// @brief Reads the airports csv file and gets all the information about each airport, while simultaneously creating the cities or adding the airports to the cities
+/// @brief Reads the airports csv file and gets all the information about each airport, while simultaneously creating the cities and countries, adding the airports to the cities and adding the cities to the countries
 /// complexity: O(n2*m2) (n2 = number of lines in the csv file, m2 = number of cells in each line)
 void csv_reader::read_airports_csv() {
     ifstream file(this->airports_csv_file_name);
@@ -67,6 +67,14 @@ void csv_reader::read_airports_csv() {
                 this->cities.insert({city.getCode(), city});
             } else {
                 this->cities.at(current_airport_city_code).addAirport(&this->airports.at(airport.getCode()));
+            }
+            // add countries
+            if (this->countries.find(airport.getCountry()) == this->countries.end()) {
+                Country country(airport.getCountry());
+                country.addCity(&this->cities.at(current_airport_city_code));
+                this->countries.insert({country.getName(), country});
+            } else {
+                this->countries.at(airport.getCountry()).addCity(&this->cities.at(current_airport_city_code));
             }
         }
         file.close();
@@ -127,4 +135,11 @@ std::unordered_map<std::string, Airline> csv_reader::getAirlines() {
 /// @return unordered map with all cities
 std::unordered_map<std::string, City> csv_reader::getCities() {
     return this->cities;
+}
+
+/// @brief Gets all the countries
+/// complexity: O(1)
+/// @return unordered map with all countries
+std::unordered_map<std::string, Country> csv_reader::getCountries() {
+    return this->countries;
 }

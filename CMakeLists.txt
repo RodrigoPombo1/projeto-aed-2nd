@@ -18,6 +18,8 @@ add_executable(projeto_aed_2nd main.cpp
         source/Airline.h
         source/City.cpp
         source/City.h
+        source/Country.cpp
+        source/Country.h
 )
 
 include_directories(source)

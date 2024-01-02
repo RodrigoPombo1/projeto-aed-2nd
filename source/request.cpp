@@ -13,7 +13,7 @@ request::request() {
     this->airports = csvReader.getAirports();
     this->airlines = csvReader.getAirlines();
     this->cities = csvReader.getCities();
-
+    this->countries = csvReader.getCountries();
 }
 
 /// @brief Gets the flights leaving from an airport using it's pointer
