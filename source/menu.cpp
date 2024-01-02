@@ -496,7 +496,7 @@ void menu::best_flight_option() {
                 this->best_flight_option_get_airport_source();
                 break;
             case 2:
-//                this->best_flight_option_get_city();
+                this->best_flight_option_get_city_source();
                 break;
             case 3:
                 this->best_flight_option_get_geographical_coordinates_source();
@@ -552,6 +552,32 @@ void menu::best_flight_option_get_geographical_coordinates_source() {
             cout << "No airports found with these geographical coordinates\n";
         } else {
             this->best_flight_option_select_airline(airport_pointer_vec, latitude + "-" + longitude);
+        }
+    }
+}
+
+void menu::best_flight_option_get_city_source() {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Best flight option - source - enter city";
+        string city = this->print_menu_and_get_string_input("Enter city");
+        if (city == "0") {
+            return;
+        } else if (city == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        string country = this->print_menu_and_get_string_input("Enter country");
+        if (country == "0") {
+            return;
+        } else if (country == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        vector<Airport*> airport_pointer_vec = this->Request.get_vector_airport_pointer_from_city(city, country);
+        if (airport_pointer_vec.empty()) {
+            cout << "No airports found in this city\n";
+        } else {
+            this->best_flight_option_select_airline(airport_pointer_vec, city + "-" + country);
         }
     }
 }
@@ -618,7 +644,7 @@ void menu::best_flight_option_select_destination(vector<Airport*> vector_airport
                 this->best_flight_option_get_airport_destination(vector_airport_pointer, source_code, airline_pointer);
                 break;
             case 2:
-//                this->best_flight_option_get_city_destination(airport_pointer, airline_pointer);
+                this->best_flight_option_get_city_destination(vector_airport_pointer, source_code, airline_pointer);
                 break;
             case 3:
                 this->best_flight_option_get_geographical_coordinates_destination(vector_airport_pointer, source_code, airline_pointer);
@@ -682,6 +708,36 @@ void menu::best_flight_option_get_geographical_coordinates_destination(std::vect
             this->best_flight_option_airport_to_airport(vector_airport_pointer, source_code, airline_pointer,
                                                         destination_airport_pointer_vec,
                                                         latitude + "-" + longitude);
+        }
+    }
+}
+
+void menu::best_flight_option_get_city_destination(std::vector<Airport *> vector_airport_pointer,
+                                                   std::string source_code,
+                                                   Airline *airline_pointer) {
+    while (!this->go_back_to_main_menu) {
+        string current_menu = "Best flight option - source - " + source_code + " - enter city";
+        string city = this->print_menu_and_get_string_input("Enter city");
+        if (city == "0") {
+            return;
+        } else if (city == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        string country = this->print_menu_and_get_string_input("Enter country");
+        if (country == "0") {
+            return;
+        } else if (country == "-1") {
+            this->go_back_to_main_menu = true;
+            return;
+        }
+        vector<Airport*> destination_airport_pointer_vec = this->Request.get_vector_airport_pointer_from_city(city, country);
+        if (destination_airport_pointer_vec.empty()) {
+            cout << "No airports found in this city\n";
+        } else {
+            this->best_flight_option_airport_to_airport(vector_airport_pointer, source_code, airline_pointer,
+                                                        destination_airport_pointer_vec,
+                                                        city + "-" + country);
         }
     }
 }

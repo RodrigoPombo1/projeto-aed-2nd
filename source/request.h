@@ -34,6 +34,7 @@ public:
                                                                      std::vector<Airport*> destination,
                                                                      std::vector<Airline*> airline);
     std::vector<Airport*> get_vector_airport_pointer_from_geographical_coordinates(double latitude, double longitude);
+    std::vector<Airport*> get_vector_airport_pointer_from_city(std::string city, std::string country);
 };
 
 #endif //PROJETO_AED_2ND_REQUEST_H

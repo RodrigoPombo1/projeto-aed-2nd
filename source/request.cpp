@@ -256,3 +256,17 @@ double request::calculate_distance(double latitude1, double longitude1, double l
     double c = 2 * asin(sqrt(a));
     return rad * c;
 }
+
+vector<Airport*> request::get_vector_airport_pointer_from_city(string city, string country) {
+    vector<Airport*> res;
+    string city_code = city + "-" + country;
+    if (this->cities.find(city_code) == this->cities.end()) {
+        return res;
+    }
+    City current_city = this->cities.at(city_code);
+    vector<Airport*> current_city_airports = current_city.getAirports();
+    for (Airport* &airport : current_city_airports) {
+        res.push_back(airport);
+    }
+    return res;
+}
