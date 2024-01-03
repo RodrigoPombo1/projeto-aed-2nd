@@ -1,0 +1,41 @@
+\doxysection{Airport.\+h}
+\hypertarget{_airport_8h_source}{}\label{_airport_8h_source}\index{source/Airport.h@{source/Airport.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJETO\_AED\_2ND\_AIRPORT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJETO\_AED\_2ND\_AIRPORT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Flight.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_flight}{Flight}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_airport}{Airport}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ std::string\ code;}
+\DoxyCodeLine{00012\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00013\ \ \ \ \ std::string\ city;}
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ country;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<Flight>\ flights;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_airport}{Airport}}(std::string\ code,\ std::string\ name,\ std::string\ city,\ std::string\ country,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude,\ \textcolor{keywordtype}{double}\ longitude);}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ \mbox{\hyperlink{class_airport_add9b3ea6f8849f6167f5a70a9280781a}{getCode}}();}
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ \mbox{\hyperlink{class_airport_a939b886a8a9675e22418f2c9a490bdcb}{getName}}();}
+\DoxyCodeLine{00023\ \ \ \ \ std::string\ \mbox{\hyperlink{class_airport_a7dc058132336ea1b211323730fc44148}{getCity}}();}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ \mbox{\hyperlink{class_airport_a82e555b62c9af6c729a6d3c7fb8ae8c4}{getCountry}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_airport_afcff199f6f786aa4ee3c15cb2f195487}{getLatitude}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_airport_a5d31cceec2a7de9fb902afeda997c3ff}{getLongitude}}();}
+\DoxyCodeLine{00027\ \ \ \ \ std::vector<Flight>\ \mbox{\hyperlink{class_airport_af9434636723a321b991031833c5ac74e}{getFlights}}();}
+\DoxyCodeLine{00028\ \ \ \ \ std::vector<Flight*>\ \mbox{\hyperlink{class_airport_a54c98e41cf90eb428edbe1d6831bc928}{getFlightsPointer}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_airport_a6649c24d1faefcd183b8d731ceb88f3b}{addFlight}}(\mbox{\hyperlink{class_flight}{Flight}}\ flight);}
+\DoxyCodeLine{00030\ \ \ \ \ std::string\ \mbox{\hyperlink{class_airport_aa586fd202845735be0f198c0df2813d1}{toString}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_airport_a2d93e2cadbdb3ed9114aff48aa0bac5c}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_airport}{Airport}}\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJETO\_AED\_2ND\_AIRPORT\_H}}
+
+\end{DoxyCode}

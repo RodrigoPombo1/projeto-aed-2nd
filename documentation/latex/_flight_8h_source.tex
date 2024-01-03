@@ -1,0 +1,31 @@
+\doxysection{Flight.\+h}
+\hypertarget{_flight_8h_source}{}\label{_flight_8h_source}\index{source/Flight.h@{source/Flight.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJETO\_AED\_2ND\_FLIGHT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJETO\_AED\_2ND\_FLIGHT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Airport.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_airport}{Airport}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_flight}{Flight}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_airport}{Airport}}\ *target;}
+\DoxyCodeLine{00012\ \ \ \ \ std::string\ airline;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{double}\ distance;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_flight_a17848e0d7c787f4ee86f71b81f1fca81}{calculate\_distance}}(\mbox{\hyperlink{class_airport}{Airport}}\ *source);}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_flight}{Flight}}(\mbox{\hyperlink{class_airport}{Airport}}\ *source,\ \mbox{\hyperlink{class_airport}{Airport}}\ *target,\ std::string\ airline);}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_airport}{Airport}}*\ \mbox{\hyperlink{class_flight_a6b48bcbb89448b873d7fe68e07915c3e}{getTarget}}();}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ \mbox{\hyperlink{class_flight_af749f30c960dcd29a75478e938ba5021}{getAirline}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_flight_a4c9b677056972d36616f282fa6e1a7f1}{getDistance}}();}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ \mbox{\hyperlink{class_flight_ae7f5926caeb5a7994b47e8dcfe46bd2b}{toString}}();}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJETO\_AED\_2ND\_FLIGHT\_H}}
+
+\end{DoxyCode}

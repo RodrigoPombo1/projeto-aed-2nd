@@ -1,0 +1,163 @@
+\doxysection{City Class Reference}
+\hypertarget{class_city}{}\label{class_city}\index{City@{City}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_city_acd5375df49e51b658190907fdb447aa0}{City}} (std\+::string city\+\_\+name, std\+::string country\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Constructs the city object by attributing it\textquotesingle{}s values complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_city_ad54fdb80acd43030e9a98fadf3655f18}{get\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Gets the code of a city complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_city_a17834e70f59d9c78fd3901bdaf3104de}{get\+City\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of a city complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_city_ac3c4a87af85e7d797f35e43d146a9fd3}{get\+Country\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of the country a city is in complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_city_af4f4ea52cbebe3443dc9080e7044ac89}{get\+Airports}} ()
+\begin{DoxyCompactList}\small\item\em Gets the airports in a city complexity\+: O(1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_city_a7f18f72d4cc5e81752b46afdad52151c}{add\+Airport}} (\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}airport)
+\begin{DoxyCompactList}\small\item\em Adds an airport to a city complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_city_a4037281407ccef0c28e9eecf55a6e4ca}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Puts all the information about the city into a string complexity\+: O(1) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_city_aac4df03525247a9f8f6937a1c0c2f083}{operator==}} (const \mbox{\hyperlink{class_city}{City}} \&other) const
+\begin{DoxyCompactList}\small\item\em Defines an operator to compare two cities by their codes (to see if it\textquotesingle{}s the same) complexity\+: O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_city_a9ae82166ad9c89c3f29669c759c2aee4}\label{class_city_a9ae82166ad9c89c3f29669c759c2aee4} 
+std\+::string {\bfseries code}
+\item 
+\Hypertarget{class_city_a90281bdb5cfa367b3a92f80cbef03ca3}\label{class_city_a90281bdb5cfa367b3a92f80cbef03ca3} 
+std\+::string {\bfseries city\+\_\+name}
+\item 
+\Hypertarget{class_city_a67d6943e24be147b76632abc8a4279e9}\label{class_city_a67d6943e24be147b76632abc8a4279e9} 
+std\+::string {\bfseries country\+\_\+name}
+\item 
+\Hypertarget{class_city_adcb763d861b102fa5ca74e285bfd11d0}\label{class_city_adcb763d861b102fa5ca74e285bfd11d0} 
+std\+::vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries airports}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_city_acd5375df49e51b658190907fdb447aa0}\label{class_city_acd5375df49e51b658190907fdb447aa0} 
+\index{City@{City}!City@{City}}
+\index{City@{City}!City@{City}}
+\doxysubsubsection{\texorpdfstring{City()}{City()}}
+{\footnotesize\ttfamily City\+::\+City (\begin{DoxyParamCaption}\item[{std\+::string}]{city\+\_\+name,  }\item[{std\+::string}]{country\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Constructs the city object by attributing it\textquotesingle{}s values complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city\+\_\+name} & name of the city \\
+\hline
+{\em country\+\_\+name} & name of the country the city is in \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_city_a7f18f72d4cc5e81752b46afdad52151c}\label{class_city_a7f18f72d4cc5e81752b46afdad52151c} 
+\index{City@{City}!addAirport@{addAirport}}
+\index{addAirport@{addAirport}!City@{City}}
+\doxysubsubsection{\texorpdfstring{addAirport()}{addAirport()}}
+{\footnotesize\ttfamily void City\+::add\+Airport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}}]{airport }\end{DoxyParamCaption})}
+
+
+
+Adds an airport to a city complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport} & pointer to the airport \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_city_af4f4ea52cbebe3443dc9080e7044ac89}\label{class_city_af4f4ea52cbebe3443dc9080e7044ac89} 
+\index{City@{City}!getAirports@{getAirports}}
+\index{getAirports@{getAirports}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getAirports()}{getAirports()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ City\+::get\+Airports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the airports in a city complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+vector with pointers to the airports in the city 
+\end{DoxyReturn}
+\Hypertarget{class_city_a17834e70f59d9c78fd3901bdaf3104de}\label{class_city_a17834e70f59d9c78fd3901bdaf3104de} 
+\index{City@{City}!getCityName@{getCityName}}
+\index{getCityName@{getCityName}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getCityName()}{getCityName()}}
+{\footnotesize\ttfamily string City\+::get\+City\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the name of a city complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+name of the city 
+\end{DoxyReturn}
+\Hypertarget{class_city_ad54fdb80acd43030e9a98fadf3655f18}\label{class_city_ad54fdb80acd43030e9a98fadf3655f18} 
+\index{City@{City}!getCode@{getCode}}
+\index{getCode@{getCode}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily string City\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the code of a city complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+code of the city 
+\end{DoxyReturn}
+\Hypertarget{class_city_ac3c4a87af85e7d797f35e43d146a9fd3}\label{class_city_ac3c4a87af85e7d797f35e43d146a9fd3} 
+\index{City@{City}!getCountryName@{getCountryName}}
+\index{getCountryName@{getCountryName}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getCountryName()}{getCountryName()}}
+{\footnotesize\ttfamily string City\+::get\+Country\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the name of the country a city is in complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+name of the country the city is in 
+\end{DoxyReturn}
+\Hypertarget{class_city_aac4df03525247a9f8f6937a1c0c2f083}\label{class_city_aac4df03525247a9f8f6937a1c0c2f083} 
+\index{City@{City}!operator==@{operator==}}
+\index{operator==@{operator==}!City@{City}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool City\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_city}{City}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Defines an operator to compare two cities by their codes (to see if it\textquotesingle{}s the same) complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & other city we want to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean value indicating if two cities are the same 
+\end{DoxyReturn}
+\Hypertarget{class_city_a4037281407ccef0c28e9eecf55a6e4ca}\label{class_city_a4037281407ccef0c28e9eecf55a6e4ca} 
+\index{City@{City}!toString@{toString}}
+\index{toString@{toString}!City@{City}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily string City\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Puts all the information about the city into a string complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+string with all the information about the city 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/City.\+h\item 
+source/City.\+cpp\end{DoxyCompactItemize}

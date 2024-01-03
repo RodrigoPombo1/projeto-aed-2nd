@@ -1,0 +1,133 @@
+\doxysection{Flight Class Reference}
+\hypertarget{class_flight}{}\label{class_flight}\index{Flight@{Flight}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_flight_a203e63bd82fd50b10e8bcdfe1174e677}{Flight}} (\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}source, \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}target, std\+::string airline)
+\begin{DoxyCompactList}\small\item\em Constructs the airline object by attributing it\textquotesingle{}s values complexity\+: O(1) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_flight_a6b48bcbb89448b873d7fe68e07915c3e}{get\+Target}} ()
+\begin{DoxyCompactList}\small\item\em Gets a pointer to the target of a flight complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_flight_af749f30c960dcd29a75478e938ba5021}{get\+Airline}} ()
+\begin{DoxyCompactList}\small\item\em Gets the airline of a flight complexity\+: O(1) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_flight_a4c9b677056972d36616f282fa6e1a7f1}{get\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the distance of a flight complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_flight_ae7f5926caeb5a7994b47e8dcfe46bd2b}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Puts the name and the code of the target airport of a flight, the airline of a flight and the distance of a flight into a string complexity\+: O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_flight_a17848e0d7c787f4ee86f71b81f1fca81}{calculate\+\_\+distance}} (\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}source)
+\begin{DoxyCompactList}\small\item\em Calculates the distance of a flight using the latitude and longitude of it\textquotesingle{}s source and it\textquotesingle{}s target complexity\+: O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_flight_a371cbff60d2d91b694e257fd255fe03e}\label{class_flight_a371cbff60d2d91b694e257fd255fe03e} 
+\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} {\bfseries target}
+\item 
+\Hypertarget{class_flight_a2fb45d853800bd926694d4c32c96f5c1}\label{class_flight_a2fb45d853800bd926694d4c32c96f5c1} 
+std\+::string {\bfseries airline}
+\item 
+\Hypertarget{class_flight_a7a37768df77279ac0327a4a872a7f9d7}\label{class_flight_a7a37768df77279ac0327a4a872a7f9d7} 
+double {\bfseries distance}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_flight_a203e63bd82fd50b10e8bcdfe1174e677}\label{class_flight_a203e63bd82fd50b10e8bcdfe1174e677} 
+\index{Flight@{Flight}!Flight@{Flight}}
+\index{Flight@{Flight}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{Flight()}{Flight()}}
+{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}}]{source,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}}]{target,  }\item[{std\+::string}]{airline }\end{DoxyParamCaption})}
+
+
+
+Constructs the airline object by attributing it\textquotesingle{}s values complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & pointer to the source of the flight \\
+\hline
+{\em target} & pointer to the target of the flight \\
+\hline
+{\em airline} & airline of the flight \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_flight_a17848e0d7c787f4ee86f71b81f1fca81}\label{class_flight_a17848e0d7c787f4ee86f71b81f1fca81} 
+\index{Flight@{Flight}!calculate\_distance@{calculate\_distance}}
+\index{calculate\_distance@{calculate\_distance}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{calculate\_distance()}{calculate\_distance()}}
+{\footnotesize\ttfamily double Flight\+::calculate\+\_\+distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates the distance of a flight using the latitude and longitude of it\textquotesingle{}s source and it\textquotesingle{}s target complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & pointer to the source of the flight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance between the target and source airports 
+\end{DoxyReturn}
+\Hypertarget{class_flight_af749f30c960dcd29a75478e938ba5021}\label{class_flight_af749f30c960dcd29a75478e938ba5021} 
+\index{Flight@{Flight}!getAirline@{getAirline}}
+\index{getAirline@{getAirline}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getAirline()}{getAirline()}}
+{\footnotesize\ttfamily std\+::string Flight\+::get\+Airline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the airline of a flight complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+airline of the flight 
+\end{DoxyReturn}
+\Hypertarget{class_flight_a4c9b677056972d36616f282fa6e1a7f1}\label{class_flight_a4c9b677056972d36616f282fa6e1a7f1} 
+\index{Flight@{Flight}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getDistance()}{getDistance()}}
+{\footnotesize\ttfamily double Flight\+::get\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the distance of a flight complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+distance of the flight 
+\end{DoxyReturn}
+\Hypertarget{class_flight_a6b48bcbb89448b873d7fe68e07915c3e}\label{class_flight_a6b48bcbb89448b873d7fe68e07915c3e} 
+\index{Flight@{Flight}!getTarget@{getTarget}}
+\index{getTarget@{getTarget}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getTarget()}{getTarget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} Flight\+::get\+Target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a pointer to the target of a flight complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+pointer to the target of the flight 
+\end{DoxyReturn}
+\Hypertarget{class_flight_ae7f5926caeb5a7994b47e8dcfe46bd2b}\label{class_flight_ae7f5926caeb5a7994b47e8dcfe46bd2b} 
+\index{Flight@{Flight}!toString@{toString}}
+\index{toString@{toString}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Flight\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Puts the name and the code of the target airport of a flight, the airline of a flight and the distance of a flight into a string complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+string with name and code of target airport, airline and distance of the flight 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/Flight.\+h\item 
+source/Flight.\+cpp\end{DoxyCompactItemize}

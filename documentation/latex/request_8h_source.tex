@@ -1,0 +1,44 @@
+\doxysection{request.\+h}
+\hypertarget{request_8h_source}{}\label{request_8h_source}\index{source/request.h@{source/request.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJETO\_AED\_2ND\_REQUEST\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJETO\_AED\_2ND\_REQUEST\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}csv\_reader.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrequest}{request}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ std::unordered\_map<std::string,\ Airport>\ airports;}
+\DoxyCodeLine{00013\ \ \ \ \ std::unordered\_map<std::string,\ Airline>\ airlines;}
+\DoxyCodeLine{00014\ \ \ \ \ std::unordered\_map<std::string,\ City>\ cities;}
+\DoxyCodeLine{00015\ \ \ \ \ std::unordered\_map<std::string,\ Country>\ countries;}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classcsv__reader}{csv\_reader}}\ csvReader;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ functions\ used\ internally\ by\ request}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classrequest_a9c50605647352b3d482595395c4bad51}{calculate\_distance}}(\textcolor{keywordtype}{double}\ latitude1,\ \textcolor{keywordtype}{double}\ longitude1,\ \textcolor{keywordtype}{double}\ latitude2,\ \textcolor{keywordtype}{double}\ longitude2);}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classrequest_ae49e0b00a54017889a18e955b88087f6}{request}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ functions\ called\ by\ menu}}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<Flight>\ \mbox{\hyperlink{classrequest_a012fd041b9c5bc0753974ade02d6bc58}{get\_flights\_from\_airport\_pointer}}(\mbox{\hyperlink{class_airport}{Airport}}\ *airport\_pointer);}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_airport}{Airport}}*\ \mbox{\hyperlink{classrequest_a52b678aaf1a90ec97fca359ca405a757}{get\_airport\_pointer\_from\_airport\_code}}(std::string\ airport\_code);}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{classrequest_afe3a2ca8d64708438813df677fd951b8}{get\_city\_pointer\_from\_city\_code}}(std::string\ city\_code);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrequest_ae9b51266b938e8596522a852ec023940}{get\_total\_number\_of\_airports}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrequest_aaad99541a57f02f484437be8d3826724}{get\_total\_number\_of\_flights\_from\_all\_airports}}();}
+\DoxyCodeLine{00028\ \ \ \ \ std::vector<std::pair<int,\ Airport>>\ \mbox{\hyperlink{classrequest_a79d7045a2abbb26cccc9e81e10390ae1}{get\_airports\_with\_top\_air\_traffic\_capacity}}(\textcolor{keywordtype}{int}\ top\_number\_of\_airports);}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_airline}{Airline}}*\ \mbox{\hyperlink{classrequest_a108371d8d2ace362bdaa900aaf8c64a8}{get\_airline\_pointer\_from\_airline\_code}}(std::string\ airline\_code);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrequest_a950ad70ac82fc5dce1823051cdd937a3}{get\_number\_flights\_from\_airline\_pointer}}(\mbox{\hyperlink{class_airline}{Airline}}\ *airline\_pointer);}
+\DoxyCodeLine{00031\ \ \ \ \ std::pair<std::vector<Flight>,\ \mbox{\hyperlink{class_airport}{Airport}}*>\ \mbox{\hyperlink{classrequest_a2d06de554ac2803ac89115801a0191b6}{get\_flights\_best\_option\_bfs}}(std::vector<Airport*>\ source,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Airport*>\ destination,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Airline*>\ airline);}
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<Airport*>\ \mbox{\hyperlink{classrequest_a49ee4cbdbf7d397333343ab9c6c9b6d6}{get\_vector\_airport\_pointer\_from\_geographical\_coordinates}}(\textcolor{keywordtype}{double}\ latitude,\ \textcolor{keywordtype}{double}\ longitude);}
+\DoxyCodeLine{00035\ \ \ \ \ std::vector<Airport*>\ \mbox{\hyperlink{classrequest_a7da2b1dc3e238d661eacd973fcc6c0d3}{get\_vector\_airport\_pointer\_from\_city}}(std::string\ city,\ std::string\ country);}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJETO\_AED\_2ND\_REQUEST\_H}}
+
+\end{DoxyCode}

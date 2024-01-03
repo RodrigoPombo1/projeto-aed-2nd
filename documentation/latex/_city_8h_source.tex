@@ -1,0 +1,33 @@
+\doxysection{City.\+h}
+\hypertarget{_city_8h_source}{}\label{_city_8h_source}\index{source/City.h@{source/City.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJETO\_AED\_2ND\_CITY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJETO\_AED\_2ND\_CITY\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Airport.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_city}{City}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ code;\ \textcolor{comment}{//\ =\ name\_name-\/country\_name}}
+\DoxyCodeLine{00011\ \ \ \ \ std::string\ city\_name;}
+\DoxyCodeLine{00012\ \ \ \ \ std::string\ country\_name;}
+\DoxyCodeLine{00013\ \ \ \ \ std::vector<Airport*>\ airports;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}(std::string\ city\_name,\ std::string\ country\_name);}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ \mbox{\hyperlink{class_city_ad54fdb80acd43030e9a98fadf3655f18}{getCode}}();}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ \mbox{\hyperlink{class_city_a17834e70f59d9c78fd3901bdaf3104de}{getCityName}}();}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ \mbox{\hyperlink{class_city_ac3c4a87af85e7d797f35e43d146a9fd3}{getCountryName}}();}
+\DoxyCodeLine{00019\ \ \ \ \ std::vector<Airport*>\ \mbox{\hyperlink{class_city_af4f4ea52cbebe3443dc9080e7044ac89}{getAirports}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_city_a7f18f72d4cc5e81752b46afdad52151c}{addAirport}}(\mbox{\hyperlink{class_airport}{Airport}}*\ airport);}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ \mbox{\hyperlink{class_city_a4037281407ccef0c28e9eecf55a6e4ca}{toString}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_city_aac4df03525247a9f8f6937a1c0c2f083}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_city}{City}}\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJETO\_AED\_2ND\_CITY\_H}}
+
+\end{DoxyCode}

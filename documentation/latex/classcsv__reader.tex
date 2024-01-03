@@ -1,0 +1,133 @@
+\doxysection{csv\+\_\+reader Class Reference}
+\hypertarget{classcsv__reader}{}\label{classcsv__reader}\index{csv\_reader@{csv\_reader}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcsv__reader_a7da10862398507cb6faedd58089ae462}\label{classcsv__reader_a7da10862398507cb6faedd58089ae462} 
+{\bfseries csv\+\_\+reader} ()
+\begin{DoxyCompactList}\small\item\em Gets all the information from the csv files complexity\+: O(n1+m1) + O(n2+m2) + O(n3+m3) \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_airport}{Airport}} $>$ \mbox{\hyperlink{classcsv__reader_a6e93d36aea863d5f14fcd48ae56138c4}{get\+Airports}} ()
+\begin{DoxyCompactList}\small\item\em Gets all the airports complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_airline}{Airline}} $>$ \mbox{\hyperlink{classcsv__reader_a57c990414030aa5e3728726ba352c653}{get\+Airlines}} ()
+\begin{DoxyCompactList}\small\item\em Gets all the airlines complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_city}{City}} $>$ \mbox{\hyperlink{classcsv__reader_a410165d15ba0f3e7344f6fc31cbc86ff}{get\+Cities}} ()
+\begin{DoxyCompactList}\small\item\em Gets all the cities complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_country}{Country}} $>$ \mbox{\hyperlink{classcsv__reader_aca463503ebea82777a0223e57c845f75}{get\+Countries}} ()
+\begin{DoxyCompactList}\small\item\em Gets all the countries complexity\+: O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcsv__reader_a344fe3ca3b372e7c652a1f8a1518a655}\label{classcsv__reader_a344fe3ca3b372e7c652a1f8a1518a655} 
+void {\bfseries read\+\_\+airlines\+\_\+csv} ()
+\begin{DoxyCompactList}\small\item\em Reads the airlines csv file and gets all the information about each airline complexity\+: O(n1\texorpdfstring{$\ast$}{*}m1) (n1 = number of lines in the csv file, m1 = number of cells in each line) \end{DoxyCompactList}\item 
+\Hypertarget{classcsv__reader_a24da0244774cb52a218cbf12918029ba}\label{classcsv__reader_a24da0244774cb52a218cbf12918029ba} 
+void {\bfseries read\+\_\+airports\+\_\+csv} ()
+\begin{DoxyCompactList}\small\item\em Reads the airports csv file and gets all the information about each airport, while simultaneously creating the cities and countries, adding the airports to the cities and adding the cities to the countries complexity\+: O(n2\texorpdfstring{$\ast$}{*}m2) (n2 = number of lines in the csv file, m2 = number of cells in each line) \end{DoxyCompactList}\item 
+\Hypertarget{classcsv__reader_a5be17277abb11afbbe9ede323cf1c570}\label{classcsv__reader_a5be17277abb11afbbe9ede323cf1c570} 
+void {\bfseries read\+\_\+flights\+\_\+csv} ()
+\begin{DoxyCompactList}\small\item\em Reads the airlines csv file and gets all the information about each flight complexity\+: O(n3\texorpdfstring{$\ast$}{*}m3) (n3 = number of lines in the csv file, m3 = number of cells in each line) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcsv__reader_a7419b352cf14a1ba4f7eec03616bd8c5}{get\+\_\+airport\+\_\+pointer\+\_\+by\+\_\+code}} (std\+::string code)
+\begin{DoxyCompactList}\small\item\em Gets the pointer to the airport wanted by it\textquotesingle{}s code complexity\+: O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcsv__reader_a8dd9104f4e4e75aa8769fa73938162cc}\label{classcsv__reader_a8dd9104f4e4e75aa8769fa73938162cc} 
+std\+::string {\bfseries airlines\+\_\+csv\+\_\+file\+\_\+name}
+\item 
+\Hypertarget{classcsv__reader_a3a1351fea3e4c959cff65c51309dc125}\label{classcsv__reader_a3a1351fea3e4c959cff65c51309dc125} 
+std\+::string {\bfseries airports\+\_\+csv\+\_\+file\+\_\+name}
+\item 
+\Hypertarget{classcsv__reader_a8abbfebae674c146cd56a4fd702b4663}\label{classcsv__reader_a8abbfebae674c146cd56a4fd702b4663} 
+std\+::string {\bfseries flights\+\_\+csv\+\_\+file\+\_\+name}
+\item 
+\Hypertarget{classcsv__reader_a8af26b1fa398726a689a6bc138ef0d77}\label{classcsv__reader_a8af26b1fa398726a689a6bc138ef0d77} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries airports}
+\item 
+\Hypertarget{classcsv__reader_a1d27100347e6ba0328239c6d5efe9d1a}\label{classcsv__reader_a1d27100347e6ba0328239c6d5efe9d1a} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_airline}{Airline}} $>$ {\bfseries airlines}
+\item 
+\Hypertarget{classcsv__reader_a1efd5b9d95616ec21d4868566ce67ba0}\label{classcsv__reader_a1efd5b9d95616ec21d4868566ce67ba0} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_city}{City}} $>$ {\bfseries cities}
+\item 
+\Hypertarget{classcsv__reader_afb3bdef92cb7d628784196dbe530720f}\label{classcsv__reader_afb3bdef92cb7d628784196dbe530720f} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_country}{Country}} $>$ {\bfseries countries}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcsv__reader_a7419b352cf14a1ba4f7eec03616bd8c5}\label{classcsv__reader_a7419b352cf14a1ba4f7eec03616bd8c5} 
+\index{csv\_reader@{csv\_reader}!get\_airport\_pointer\_by\_code@{get\_airport\_pointer\_by\_code}}
+\index{get\_airport\_pointer\_by\_code@{get\_airport\_pointer\_by\_code}!csv\_reader@{csv\_reader}}
+\doxysubsubsection{\texorpdfstring{get\_airport\_pointer\_by\_code()}{get\_airport\_pointer\_by\_code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} csv\+\_\+reader\+::get\+\_\+airport\+\_\+pointer\+\_\+by\+\_\+code (\begin{DoxyParamCaption}\item[{std\+::string}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the pointer to the airport wanted by it\textquotesingle{}s code complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & code of the airport we want the pointer to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the airport 
+\end{DoxyReturn}
+\Hypertarget{classcsv__reader_a57c990414030aa5e3728726ba352c653}\label{classcsv__reader_a57c990414030aa5e3728726ba352c653} 
+\index{csv\_reader@{csv\_reader}!getAirlines@{getAirlines}}
+\index{getAirlines@{getAirlines}!csv\_reader@{csv\_reader}}
+\doxysubsubsection{\texorpdfstring{getAirlines()}{getAirlines()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_airline}{Airline}} $>$ csv\+\_\+reader\+::get\+Airlines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets all the airlines complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+unordered map with all airlines 
+\end{DoxyReturn}
+\Hypertarget{classcsv__reader_a6e93d36aea863d5f14fcd48ae56138c4}\label{classcsv__reader_a6e93d36aea863d5f14fcd48ae56138c4} 
+\index{csv\_reader@{csv\_reader}!getAirports@{getAirports}}
+\index{getAirports@{getAirports}!csv\_reader@{csv\_reader}}
+\doxysubsubsection{\texorpdfstring{getAirports()}{getAirports()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_airport}{Airport}} $>$ csv\+\_\+reader\+::get\+Airports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets all the airports complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+unordered map with all airports 
+\end{DoxyReturn}
+\Hypertarget{classcsv__reader_a410165d15ba0f3e7344f6fc31cbc86ff}\label{classcsv__reader_a410165d15ba0f3e7344f6fc31cbc86ff} 
+\index{csv\_reader@{csv\_reader}!getCities@{getCities}}
+\index{getCities@{getCities}!csv\_reader@{csv\_reader}}
+\doxysubsubsection{\texorpdfstring{getCities()}{getCities()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_city}{City}} $>$ csv\+\_\+reader\+::get\+Cities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets all the cities complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+unordered map with all cities 
+\end{DoxyReturn}
+\Hypertarget{classcsv__reader_aca463503ebea82777a0223e57c845f75}\label{classcsv__reader_aca463503ebea82777a0223e57c845f75} 
+\index{csv\_reader@{csv\_reader}!getCountries@{getCountries}}
+\index{getCountries@{getCountries}!csv\_reader@{csv\_reader}}
+\doxysubsubsection{\texorpdfstring{getCountries()}{getCountries()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_country}{Country}} $>$ csv\+\_\+reader\+::get\+Countries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets all the countries complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+unordered map with all countries 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/csv\+\_\+reader.\+h\item 
+source/csv\+\_\+reader.\+cpp\end{DoxyCompactItemize}

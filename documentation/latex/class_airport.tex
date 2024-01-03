@@ -1,0 +1,240 @@
+\doxysection{Airport Class Reference}
+\hypertarget{class_airport}{}\label{class_airport}\index{Airport@{Airport}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_airport_ad832d1feec4889ca2950213bcad345a0}{Airport}} (std\+::string code, std\+::string name, std\+::string city, std\+::string country, double latitude, double longitude)
+\begin{DoxyCompactList}\small\item\em Constructs the airport object by attributing it\textquotesingle{}s values complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_airport_add9b3ea6f8849f6167f5a70a9280781a}{get\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Gets the code of an airport complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_airport_a939b886a8a9675e22418f2c9a490bdcb}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of an airport complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_airport_a7dc058132336ea1b211323730fc44148}{get\+City}} ()
+\begin{DoxyCompactList}\small\item\em Gets the city of an airport complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_airport_a82e555b62c9af6c729a6d3c7fb8ae8c4}{get\+Country}} ()
+\begin{DoxyCompactList}\small\item\em Gets the country of an airport complexity\+: O(1) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_airport_afcff199f6f786aa4ee3c15cb2f195487}{get\+Latitude}} ()
+\begin{DoxyCompactList}\small\item\em Gets the latitude of an airport complexity\+: O(1) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_airport_a5d31cceec2a7de9fb902afeda997c3ff}{get\+Longitude}} ()
+\begin{DoxyCompactList}\small\item\em Gets the longitude of an airport complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ \mbox{\hyperlink{class_airport_af9434636723a321b991031833c5ac74e}{get\+Flights}} ()
+\begin{DoxyCompactList}\small\item\em Gets the flight leaving from an airport complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_flight}{Flight}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_airport_a54c98e41cf90eb428edbe1d6831bc928}{get\+Flights\+Pointer}} ()
+\begin{DoxyCompactList}\small\item\em Gets pointers to flights leaving an airport complexity\+: O(n) (n = number of flights) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_airport_a6649c24d1faefcd183b8d731ceb88f3b}{add\+Flight}} (\mbox{\hyperlink{class_flight}{Flight}} flight)
+\begin{DoxyCompactList}\small\item\em Adds a flight to the flights leaving an airport complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_airport_aa586fd202845735be0f198c0df2813d1}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Puts all the information about an airport into a string complexity\+: O(1) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_airport_a2d93e2cadbdb3ed9114aff48aa0bac5c}{operator==}} (const \mbox{\hyperlink{class_airport}{Airport}} \&other) const
+\begin{DoxyCompactList}\small\item\em Defines an operator to compare two airports by their codes (to see if it\textquotesingle{}s the same) complexity\+: O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_airport_a9d5275582b3d183d5fd756da38afee77}\label{class_airport_a9d5275582b3d183d5fd756da38afee77} 
+std\+::string {\bfseries code}
+\item 
+\Hypertarget{class_airport_a7f3bf800ff1d56c6cf5ac2011fd50a5d}\label{class_airport_a7f3bf800ff1d56c6cf5ac2011fd50a5d} 
+std\+::string {\bfseries name}
+\item 
+\Hypertarget{class_airport_a97ee68b449c91d3ef1105486176b80d1}\label{class_airport_a97ee68b449c91d3ef1105486176b80d1} 
+std\+::string {\bfseries city}
+\item 
+\Hypertarget{class_airport_a7f26cdde932db3f9a34bcfd99ff17062}\label{class_airport_a7f26cdde932db3f9a34bcfd99ff17062} 
+std\+::string {\bfseries country}
+\item 
+\Hypertarget{class_airport_a165ba986f87e10d79083a6dab4ea1b34}\label{class_airport_a165ba986f87e10d79083a6dab4ea1b34} 
+double {\bfseries latitude}
+\item 
+\Hypertarget{class_airport_a0996138ab535a93f97d2182c86171af7}\label{class_airport_a0996138ab535a93f97d2182c86171af7} 
+double {\bfseries longitude}
+\item 
+\Hypertarget{class_airport_a0500e95cb2b3938eb671074a7ffe3c71}\label{class_airport_a0500e95cb2b3938eb671074a7ffe3c71} 
+std\+::vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ {\bfseries flights}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_airport_ad832d1feec4889ca2950213bcad345a0}\label{class_airport_ad832d1feec4889ca2950213bcad345a0} 
+\index{Airport@{Airport}!Airport@{Airport}}
+\index{Airport@{Airport}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{Airport()}{Airport()}}
+{\footnotesize\ttfamily Airport\+::\+Airport (\begin{DoxyParamCaption}\item[{std\+::string}]{code,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{city,  }\item[{std\+::string}]{country,  }\item[{double}]{latitude,  }\item[{double}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Constructs the airport object by attributing it\textquotesingle{}s values complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & code of the airport \\
+\hline
+{\em name} & name of the airport \\
+\hline
+{\em city} & city of the airport \\
+\hline
+{\em country} & country of the airport \\
+\hline
+{\em latitude} & latitude of the airport \\
+\hline
+{\em longitude} & longitude of the airport \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_airport_a6649c24d1faefcd183b8d731ceb88f3b}\label{class_airport_a6649c24d1faefcd183b8d731ceb88f3b} 
+\index{Airport@{Airport}!addFlight@{addFlight}}
+\index{addFlight@{addFlight}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{addFlight()}{addFlight()}}
+{\footnotesize\ttfamily void Airport\+::add\+Flight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_flight}{Flight}}}]{flight }\end{DoxyParamCaption})}
+
+
+
+Adds a flight to the flights leaving an airport complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flight} & flight we want to add \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_airport_a7dc058132336ea1b211323730fc44148}\label{class_airport_a7dc058132336ea1b211323730fc44148} 
+\index{Airport@{Airport}!getCity@{getCity}}
+\index{getCity@{getCity}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getCity()}{getCity()}}
+{\footnotesize\ttfamily string Airport\+::get\+City (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the city of an airport complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+city of the airport 
+\end{DoxyReturn}
+\Hypertarget{class_airport_add9b3ea6f8849f6167f5a70a9280781a}\label{class_airport_add9b3ea6f8849f6167f5a70a9280781a} 
+\index{Airport@{Airport}!getCode@{getCode}}
+\index{getCode@{getCode}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily string Airport\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the code of an airport complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+code of the airport 
+\end{DoxyReturn}
+\Hypertarget{class_airport_a82e555b62c9af6c729a6d3c7fb8ae8c4}\label{class_airport_a82e555b62c9af6c729a6d3c7fb8ae8c4} 
+\index{Airport@{Airport}!getCountry@{getCountry}}
+\index{getCountry@{getCountry}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getCountry()}{getCountry()}}
+{\footnotesize\ttfamily string Airport\+::get\+Country (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the country of an airport complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+country of the airport 
+\end{DoxyReturn}
+\Hypertarget{class_airport_af9434636723a321b991031833c5ac74e}\label{class_airport_af9434636723a321b991031833c5ac74e} 
+\index{Airport@{Airport}!getFlights@{getFlights}}
+\index{getFlights@{getFlights}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getFlights()}{getFlights()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ Airport\+::get\+Flights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the flight leaving from an airport complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+vector with the flights leaving from the airport 
+\end{DoxyReturn}
+\Hypertarget{class_airport_a54c98e41cf90eb428edbe1d6831bc928}\label{class_airport_a54c98e41cf90eb428edbe1d6831bc928} 
+\index{Airport@{Airport}!getFlightsPointer@{getFlightsPointer}}
+\index{getFlightsPointer@{getFlightsPointer}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getFlightsPointer()}{getFlightsPointer()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_flight}{Flight}} \texorpdfstring{$\ast$}{*} $>$ Airport\+::get\+Flights\+Pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets pointers to flights leaving an airport complexity\+: O(n) (n = number of flights) 
+
+\begin{DoxyReturn}{Returns}
+vector with pointers to the flights leaving the airport 
+\end{DoxyReturn}
+\Hypertarget{class_airport_afcff199f6f786aa4ee3c15cb2f195487}\label{class_airport_afcff199f6f786aa4ee3c15cb2f195487} 
+\index{Airport@{Airport}!getLatitude@{getLatitude}}
+\index{getLatitude@{getLatitude}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getLatitude()}{getLatitude()}}
+{\footnotesize\ttfamily double Airport\+::get\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the latitude of an airport complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+latitude of the airport 
+\end{DoxyReturn}
+\Hypertarget{class_airport_a5d31cceec2a7de9fb902afeda997c3ff}\label{class_airport_a5d31cceec2a7de9fb902afeda997c3ff} 
+\index{Airport@{Airport}!getLongitude@{getLongitude}}
+\index{getLongitude@{getLongitude}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getLongitude()}{getLongitude()}}
+{\footnotesize\ttfamily double Airport\+::get\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the longitude of an airport complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+longitude of the airport 
+\end{DoxyReturn}
+\Hypertarget{class_airport_a939b886a8a9675e22418f2c9a490bdcb}\label{class_airport_a939b886a8a9675e22418f2c9a490bdcb} 
+\index{Airport@{Airport}!getName@{getName}}
+\index{getName@{getName}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Airport\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the name of an airport complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+name of the airport 
+\end{DoxyReturn}
+\Hypertarget{class_airport_a2d93e2cadbdb3ed9114aff48aa0bac5c}\label{class_airport_a2d93e2cadbdb3ed9114aff48aa0bac5c} 
+\index{Airport@{Airport}!operator==@{operator==}}
+\index{operator==@{operator==}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Airport\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Defines an operator to compare two airports by their codes (to see if it\textquotesingle{}s the same) complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & other airport we want to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean value indicating if two airports are the same 
+\end{DoxyReturn}
+\Hypertarget{class_airport_aa586fd202845735be0f198c0df2813d1}\label{class_airport_aa586fd202845735be0f198c0df2813d1} 
+\index{Airport@{Airport}!toString@{toString}}
+\index{toString@{toString}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily string Airport\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Puts all the information about an airport into a string complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+string with all the information about the airport 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/Airport.\+h\item 
+source/Airport.\+cpp\end{DoxyCompactItemize}

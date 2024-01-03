@@ -1,0 +1,125 @@
+\doxysection{Country Class Reference}
+\hypertarget{class_country}{}\label{class_country}\index{Country@{Country}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_country_a6bc76183c9ee9e74e0a1c68a38283ebc}{Country}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Constructs the country object by attributing it\textquotesingle{}s values complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_country_a61ed563237fcc7df21b6bb092b86507b}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of a country complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_country_a88b5d276b730a6d5cdbc75973a70808b}{get\+Cities}} ()
+\begin{DoxyCompactList}\small\item\em Gets the cities in a country complexity\+: O(1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_country_a9db628b634cc4070b76b4a45b23f336e}{add\+City}} (\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*}city)
+\begin{DoxyCompactList}\small\item\em Adds a city to a country complexity\+: O(1) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_country_a644ca249cbf971370f86c17e72834e31}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Puts all the information about a country into a string complexity\+: O(1) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_country_a71fac49bf0892fbe40757a78c554439e}{operator==}} (const \mbox{\hyperlink{class_country}{Country}} \&other) const
+\begin{DoxyCompactList}\small\item\em Defines an operator to compare two countries by their names (to see if it\textquotesingle{}s the same) complexity\+: O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_country_a568716bc32b2112a62312ae4986e7d83}\label{class_country_a568716bc32b2112a62312ae4986e7d83} 
+std\+::string {\bfseries name}
+\item 
+\Hypertarget{class_country_a13a8edb8fe2cd492bfb168b3de6ef39e}\label{class_country_a13a8edb8fe2cd492bfb168b3de6ef39e} 
+std\+::vector$<$ \mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries cities}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_country_a6bc76183c9ee9e74e0a1c68a38283ebc}\label{class_country_a6bc76183c9ee9e74e0a1c68a38283ebc} 
+\index{Country@{Country}!Country@{Country}}
+\index{Country@{Country}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{Country()}{Country()}}
+{\footnotesize\ttfamily Country\+::\+Country (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Constructs the country object by attributing it\textquotesingle{}s values complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the country \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_country_a9db628b634cc4070b76b4a45b23f336e}\label{class_country_a9db628b634cc4070b76b4a45b23f336e} 
+\index{Country@{Country}!addCity@{addCity}}
+\index{addCity@{addCity}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{addCity()}{addCity()}}
+{\footnotesize\ttfamily void Country\+::add\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*}}]{city }\end{DoxyParamCaption})}
+
+
+
+Adds a city to a country complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & pointer to the city \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_country_a88b5d276b730a6d5cdbc75973a70808b}\label{class_country_a88b5d276b730a6d5cdbc75973a70808b} 
+\index{Country@{Country}!getCities@{getCities}}
+\index{getCities@{getCities}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getCities()}{getCities()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} $>$ Country\+::get\+Cities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the cities in a country complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+vector with pointers to the cities in the country 
+\end{DoxyReturn}
+\Hypertarget{class_country_a61ed563237fcc7df21b6bb092b86507b}\label{class_country_a61ed563237fcc7df21b6bb092b86507b} 
+\index{Country@{Country}!getName@{getName}}
+\index{getName@{getName}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Country\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the name of a country complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+name of the country 
+\end{DoxyReturn}
+\Hypertarget{class_country_a71fac49bf0892fbe40757a78c554439e}\label{class_country_a71fac49bf0892fbe40757a78c554439e} 
+\index{Country@{Country}!operator==@{operator==}}
+\index{operator==@{operator==}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Country\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_country}{Country}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Defines an operator to compare two countries by their names (to see if it\textquotesingle{}s the same) complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & other country we want to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean value indicating if two countries are the same 
+\end{DoxyReturn}
+\Hypertarget{class_country_a644ca249cbf971370f86c17e72834e31}\label{class_country_a644ca249cbf971370f86c17e72834e31} 
+\index{Country@{Country}!toString@{toString}}
+\index{toString@{toString}!Country@{Country}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily string Country\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Puts all the information about a country into a string complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+string with all the information about the country 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/Country.\+h\item 
+source/Country.\+cpp\end{DoxyCompactItemize}

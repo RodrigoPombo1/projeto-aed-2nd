@@ -1,0 +1,282 @@
+\doxysection{request Class Reference}
+\hypertarget{classrequest}{}\label{classrequest}\index{request@{request}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrequest_ae49e0b00a54017889a18e955b88087f6}\label{classrequest_ae49e0b00a54017889a18e955b88087f6} 
+{\bfseries request} ()
+\begin{DoxyCompactList}\small\item\em Gets all the airports, airlines and cities complexity\+: O(n1+m1) + O(n2+m2) + O(n3+m3) (check \doxylink{classcsv__reader}{csv\+\_\+reader} class) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ \mbox{\hyperlink{classrequest_a012fd041b9c5bc0753974ade02d6bc58}{get\+\_\+flights\+\_\+from\+\_\+airport\+\_\+pointer}} (\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}airport\+\_\+pointer)
+\begin{DoxyCompactList}\small\item\em Gets the flights leaving from an airport using it\textquotesingle{}s pointer complexity\+: O(1) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classrequest_a52b678aaf1a90ec97fca359ca405a757}{get\+\_\+airport\+\_\+pointer\+\_\+from\+\_\+airport\+\_\+code}} (std\+::string airport\+\_\+code)
+\begin{DoxyCompactList}\small\item\em Gets pointer to an aiport using it\textquotesingle{}s code complexity\+: O(1) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classrequest_afe3a2ca8d64708438813df677fd951b8}{get\+\_\+city\+\_\+pointer\+\_\+from\+\_\+city\+\_\+code}} (std\+::string city\+\_\+code)
+\begin{DoxyCompactList}\small\item\em Gets a pointer to a city complexity\+: O(1) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrequest_ae9b51266b938e8596522a852ec023940}{get\+\_\+total\+\_\+number\+\_\+of\+\_\+airports}} ()
+\begin{DoxyCompactList}\small\item\em Gets the total number of airports complexity\+: O(1) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrequest_aaad99541a57f02f484437be8d3826724}{get\+\_\+total\+\_\+number\+\_\+of\+\_\+flights\+\_\+from\+\_\+all\+\_\+airports}} ()
+\begin{DoxyCompactList}\small\item\em Gets the total number of flights complexity\+: O(n) (n = number of airports) \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ int, \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ \mbox{\hyperlink{classrequest_a79d7045a2abbb26cccc9e81e10390ae1}{get\+\_\+airports\+\_\+with\+\_\+top\+\_\+air\+\_\+traffic\+\_\+capacity}} (int top\+\_\+number\+\_\+of\+\_\+airports)
+\begin{DoxyCompactList}\small\item\em Gets the airports with the top air traffic capacity limited by a number chosen (how many the user wants to see) complexity\+: O(n\texorpdfstring{$\ast$}{*}log(n)) (n = number of airports) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_airline}{Airline}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classrequest_a108371d8d2ace362bdaa900aaf8c64a8}{get\+\_\+airline\+\_\+pointer\+\_\+from\+\_\+airline\+\_\+code}} (std\+::string airline\+\_\+code)
+\begin{DoxyCompactList}\small\item\em Gets pointer to an airline using it\textquotesingle{}s code complexity\+: O(1) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrequest_a950ad70ac82fc5dce1823051cdd937a3}{get\+\_\+number\+\_\+flights\+\_\+from\+\_\+airline\+\_\+pointer}} (\mbox{\hyperlink{class_airline}{Airline}} \texorpdfstring{$\ast$}{*}airline\+\_\+pointer)
+\begin{DoxyCompactList}\small\item\em Gets all the flights from an airline complexity\+: O(n\texorpdfstring{$\ast$}{*}m) (n = number of airports, m = maximum number of flights of the airline leaving an airport ) \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$, \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classrequest_a2d06de554ac2803ac89115801a0191b6}{get\+\_\+flights\+\_\+best\+\_\+option\+\_\+bfs}} (std\+::vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ source, std\+::vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ destination, std\+::vector$<$ \mbox{\hyperlink{class_airline}{Airline}} \texorpdfstring{$\ast$}{*} $>$ airline)
+\begin{DoxyCompactList}\small\item\em Gets the flight options for the wanted sources, targets and airlines complexity\+: O(n+m+s+d) (n = number of airports, m = maximum number of flights leaving an airport, s = number of sources, t = number of targets) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classrequest_a49ee4cbdbf7d397333343ab9c6c9b6d6}{get\+\_\+vector\+\_\+airport\+\_\+pointer\+\_\+from\+\_\+geographical\+\_\+coordinates}} (double latitude, double longitude)
+\begin{DoxyCompactList}\small\item\em Gets pointers to airports with the coordinates given complexity\+: O(n) (n = number of airports) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classrequest_a7da2b1dc3e238d661eacd973fcc6c0d3}{get\+\_\+vector\+\_\+airport\+\_\+pointer\+\_\+from\+\_\+city}} (std\+::string city, std\+::string country)
+\begin{DoxyCompactList}\small\item\em Gets pointers to the airports in a city complexity\+: O(n) (n = number of airports in the city) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classrequest_a9c50605647352b3d482595395c4bad51}{calculate\+\_\+distance}} (double latitude1, double longitude1, double latitude2, double longitude2)
+\begin{DoxyCompactList}\small\item\em Calculates the distance between two coordinates by using their latitude and longitude complexity\+: O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrequest_af77b9888df175548390918e140f814b8}\label{classrequest_af77b9888df175548390918e140f814b8} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_airport}{Airport}} $>$ {\bfseries airports}
+\item 
+\Hypertarget{classrequest_a2e836e158bae8374faf4b4d2e8fdd717}\label{classrequest_a2e836e158bae8374faf4b4d2e8fdd717} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_airline}{Airline}} $>$ {\bfseries airlines}
+\item 
+\Hypertarget{classrequest_ab3d5c5f8cfbaf0ef598e3a50d879501d}\label{classrequest_ab3d5c5f8cfbaf0ef598e3a50d879501d} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_city}{City}} $>$ {\bfseries cities}
+\item 
+\Hypertarget{classrequest_afb02c553034c36cdddd5c424709fd9a1}\label{classrequest_afb02c553034c36cdddd5c424709fd9a1} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{class_country}{Country}} $>$ {\bfseries countries}
+\item 
+\Hypertarget{classrequest_aeeee43e9d8498f6315966f576ce20dc1}\label{classrequest_aeeee43e9d8498f6315966f576ce20dc1} 
+\mbox{\hyperlink{classcsv__reader}{csv\+\_\+reader}} {\bfseries csv\+Reader}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrequest_a9c50605647352b3d482595395c4bad51}\label{classrequest_a9c50605647352b3d482595395c4bad51} 
+\index{request@{request}!calculate\_distance@{calculate\_distance}}
+\index{calculate\_distance@{calculate\_distance}!request@{request}}
+\doxysubsubsection{\texorpdfstring{calculate\_distance()}{calculate\_distance()}}
+{\footnotesize\ttfamily double request\+::calculate\+\_\+distance (\begin{DoxyParamCaption}\item[{double}]{latitude1,  }\item[{double}]{longitude1,  }\item[{double}]{latitude2,  }\item[{double}]{longitude2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates the distance between two coordinates by using their latitude and longitude complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em latitude1} & latitude of the first coordinate \\
+\hline
+{\em longitude1} & longitude of the first coordinate \\
+\hline
+{\em latitude2} & latitude of the second coordinate \\
+\hline
+{\em longitude2} & longitude of the second coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance between the two coordinates 
+\end{DoxyReturn}
+\Hypertarget{classrequest_a108371d8d2ace362bdaa900aaf8c64a8}\label{classrequest_a108371d8d2ace362bdaa900aaf8c64a8} 
+\index{request@{request}!get\_airline\_pointer\_from\_airline\_code@{get\_airline\_pointer\_from\_airline\_code}}
+\index{get\_airline\_pointer\_from\_airline\_code@{get\_airline\_pointer\_from\_airline\_code}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_airline\_pointer\_from\_airline\_code()}{get\_airline\_pointer\_from\_airline\_code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airline}{Airline}} \texorpdfstring{$\ast$}{*} request\+::get\+\_\+airline\+\_\+pointer\+\_\+from\+\_\+airline\+\_\+code (\begin{DoxyParamCaption}\item[{std\+::string}]{airline\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Gets pointer to an airline using it\textquotesingle{}s code complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airline\+\_\+code} & code of the airline \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the airline 
+\end{DoxyReturn}
+\Hypertarget{classrequest_a52b678aaf1a90ec97fca359ca405a757}\label{classrequest_a52b678aaf1a90ec97fca359ca405a757} 
+\index{request@{request}!get\_airport\_pointer\_from\_airport\_code@{get\_airport\_pointer\_from\_airport\_code}}
+\index{get\_airport\_pointer\_from\_airport\_code@{get\_airport\_pointer\_from\_airport\_code}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_airport\_pointer\_from\_airport\_code()}{get\_airport\_pointer\_from\_airport\_code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} request\+::get\+\_\+airport\+\_\+pointer\+\_\+from\+\_\+airport\+\_\+code (\begin{DoxyParamCaption}\item[{std\+::string}]{airport\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Gets pointer to an aiport using it\textquotesingle{}s code complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+\_\+code} & code of the airport \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the airport 
+\end{DoxyReturn}
+\Hypertarget{classrequest_a79d7045a2abbb26cccc9e81e10390ae1}\label{classrequest_a79d7045a2abbb26cccc9e81e10390ae1} 
+\index{request@{request}!get\_airports\_with\_top\_air\_traffic\_capacity@{get\_airports\_with\_top\_air\_traffic\_capacity}}
+\index{get\_airports\_with\_top\_air\_traffic\_capacity@{get\_airports\_with\_top\_air\_traffic\_capacity}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_airports\_with\_top\_air\_traffic\_capacity()}{get\_airports\_with\_top\_air\_traffic\_capacity()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ int, \mbox{\hyperlink{class_airport}{Airport}} $>$ $>$ request\+::get\+\_\+airports\+\_\+with\+\_\+top\+\_\+air\+\_\+traffic\+\_\+capacity (\begin{DoxyParamCaption}\item[{int}]{top\+\_\+number\+\_\+of\+\_\+airports }\end{DoxyParamCaption})}
+
+
+
+Gets the airports with the top air traffic capacity limited by a number chosen (how many the user wants to see) complexity\+: O(n\texorpdfstring{$\ast$}{*}log(n)) (n = number of airports) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top\+\_\+number\+\_\+of\+\_\+airports} & number of airports the user wants to see \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of pairs with the airport and it\textquotesingle{}s air traffic capacity 
+\end{DoxyReturn}
+\Hypertarget{classrequest_afe3a2ca8d64708438813df677fd951b8}\label{classrequest_afe3a2ca8d64708438813df677fd951b8} 
+\index{request@{request}!get\_city\_pointer\_from\_city\_code@{get\_city\_pointer\_from\_city\_code}}
+\index{get\_city\_pointer\_from\_city\_code@{get\_city\_pointer\_from\_city\_code}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_city\_pointer\_from\_city\_code()}{get\_city\_pointer\_from\_city\_code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} request\+::get\+\_\+city\+\_\+pointer\+\_\+from\+\_\+city\+\_\+code (\begin{DoxyParamCaption}\item[{std\+::string}]{city\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Gets a pointer to a city complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city\+\_\+code} & code of the city \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the city 
+\end{DoxyReturn}
+\Hypertarget{classrequest_a2d06de554ac2803ac89115801a0191b6}\label{classrequest_a2d06de554ac2803ac89115801a0191b6} 
+\index{request@{request}!get\_flights\_best\_option\_bfs@{get\_flights\_best\_option\_bfs}}
+\index{get\_flights\_best\_option\_bfs@{get\_flights\_best\_option\_bfs}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_flights\_best\_option\_bfs()}{get\_flights\_best\_option\_bfs()}}
+{\footnotesize\ttfamily pair$<$ vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$, \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ request\+::get\+\_\+flights\+\_\+best\+\_\+option\+\_\+bfs (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$}]{source,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$}]{destination,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_airline}{Airline}} \texorpdfstring{$\ast$}{*} $>$}]{airline }\end{DoxyParamCaption})}
+
+
+
+Gets the flight options for the wanted sources, targets and airlines complexity\+: O(n+m+s+d) (n = number of airports, m = maximum number of flights leaving an airport, s = number of sources, t = number of targets) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+\_\+sources} & vector with all airport soyrces we want to search \\
+\hline
+{\em airport\+\_\+destinations} & vector with all airport targets we ant to search \\
+\hline
+{\em airlines} & vector with all teh airlines we want to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pair of vector with the flight and a pointer to the airport of the best flight options 
+\end{DoxyReturn}
+\Hypertarget{classrequest_a012fd041b9c5bc0753974ade02d6bc58}\label{classrequest_a012fd041b9c5bc0753974ade02d6bc58} 
+\index{request@{request}!get\_flights\_from\_airport\_pointer@{get\_flights\_from\_airport\_pointer}}
+\index{get\_flights\_from\_airport\_pointer@{get\_flights\_from\_airport\_pointer}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_flights\_from\_airport\_pointer()}{get\_flights\_from\_airport\_pointer()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ request\+::get\+\_\+flights\+\_\+from\+\_\+airport\+\_\+pointer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*}}]{airport\+\_\+pointer }\end{DoxyParamCaption})}
+
+
+
+Gets the flights leaving from an airport using it\textquotesingle{}s pointer complexity\+: O(1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+\_\+pointer} & pointer to the airport \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector with the flights leaving from the airport 
+\end{DoxyReturn}
+\Hypertarget{classrequest_a950ad70ac82fc5dce1823051cdd937a3}\label{classrequest_a950ad70ac82fc5dce1823051cdd937a3} 
+\index{request@{request}!get\_number\_flights\_from\_airline\_pointer@{get\_number\_flights\_from\_airline\_pointer}}
+\index{get\_number\_flights\_from\_airline\_pointer@{get\_number\_flights\_from\_airline\_pointer}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_number\_flights\_from\_airline\_pointer()}{get\_number\_flights\_from\_airline\_pointer()}}
+{\footnotesize\ttfamily int request\+::get\+\_\+number\+\_\+flights\+\_\+from\+\_\+airline\+\_\+pointer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airline}{Airline}} \texorpdfstring{$\ast$}{*}}]{airline\+\_\+pointer }\end{DoxyParamCaption})}
+
+
+
+Gets all the flights from an airline complexity\+: O(n\texorpdfstring{$\ast$}{*}m) (n = number of airports, m = maximum number of flights of the airline leaving an airport ) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airline\+\_\+pointer} & pointer to the airline \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+total number of flights of the airline 
+\end{DoxyReturn}
+\Hypertarget{classrequest_ae9b51266b938e8596522a852ec023940}\label{classrequest_ae9b51266b938e8596522a852ec023940} 
+\index{request@{request}!get\_total\_number\_of\_airports@{get\_total\_number\_of\_airports}}
+\index{get\_total\_number\_of\_airports@{get\_total\_number\_of\_airports}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_total\_number\_of\_airports()}{get\_total\_number\_of\_airports()}}
+{\footnotesize\ttfamily int request\+::get\+\_\+total\+\_\+number\+\_\+of\+\_\+airports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the total number of airports complexity\+: O(1) 
+
+\begin{DoxyReturn}{Returns}
+total number of airports 
+\end{DoxyReturn}
+\Hypertarget{classrequest_aaad99541a57f02f484437be8d3826724}\label{classrequest_aaad99541a57f02f484437be8d3826724} 
+\index{request@{request}!get\_total\_number\_of\_flights\_from\_all\_airports@{get\_total\_number\_of\_flights\_from\_all\_airports}}
+\index{get\_total\_number\_of\_flights\_from\_all\_airports@{get\_total\_number\_of\_flights\_from\_all\_airports}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_total\_number\_of\_flights\_from\_all\_airports()}{get\_total\_number\_of\_flights\_from\_all\_airports()}}
+{\footnotesize\ttfamily int request\+::get\+\_\+total\+\_\+number\+\_\+of\+\_\+flights\+\_\+from\+\_\+all\+\_\+airports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the total number of flights complexity\+: O(n) (n = number of airports) 
+
+\begin{DoxyReturn}{Returns}
+total number of flights 
+\end{DoxyReturn}
+\Hypertarget{classrequest_a7da2b1dc3e238d661eacd973fcc6c0d3}\label{classrequest_a7da2b1dc3e238d661eacd973fcc6c0d3} 
+\index{request@{request}!get\_vector\_airport\_pointer\_from\_city@{get\_vector\_airport\_pointer\_from\_city}}
+\index{get\_vector\_airport\_pointer\_from\_city@{get\_vector\_airport\_pointer\_from\_city}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_vector\_airport\_pointer\_from\_city()}{get\_vector\_airport\_pointer\_from\_city()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ request\+::get\+\_\+vector\+\_\+airport\+\_\+pointer\+\_\+from\+\_\+city (\begin{DoxyParamCaption}\item[{std\+::string}]{city,  }\item[{std\+::string}]{country }\end{DoxyParamCaption})}
+
+
+
+Gets pointers to the airports in a city complexity\+: O(n) (n = number of airports in the city) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & city we want the airports from \\
+\hline
+{\em country} & country of the city \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector with pointers to the airports in the city 
+\end{DoxyReturn}
+\Hypertarget{classrequest_a49ee4cbdbf7d397333343ab9c6c9b6d6}\label{classrequest_a49ee4cbdbf7d397333343ab9c6c9b6d6} 
+\index{request@{request}!get\_vector\_airport\_pointer\_from\_geographical\_coordinates@{get\_vector\_airport\_pointer\_from\_geographical\_coordinates}}
+\index{get\_vector\_airport\_pointer\_from\_geographical\_coordinates@{get\_vector\_airport\_pointer\_from\_geographical\_coordinates}!request@{request}}
+\doxysubsubsection{\texorpdfstring{get\_vector\_airport\_pointer\_from\_geographical\_coordinates()}{get\_vector\_airport\_pointer\_from\_geographical\_coordinates()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_airport}{Airport}} \texorpdfstring{$\ast$}{*} $>$ request\+::get\+\_\+vector\+\_\+airport\+\_\+pointer\+\_\+from\+\_\+geographical\+\_\+coordinates (\begin{DoxyParamCaption}\item[{double}]{latitude,  }\item[{double}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Gets pointers to airports with the coordinates given complexity\+: O(n) (n = number of airports) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em latitude} & latitude of the airport \\
+\hline
+{\em longitude} & longitude of the airport \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector with pointer to the airports with the coordinates given 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/request.\+h\item 
+source/request.\+cpp\end{DoxyCompactItemize}

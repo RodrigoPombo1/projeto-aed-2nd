@@ -1,0 +1,40 @@
+\doxysection{csv\+\_\+reader.\+h}
+\hypertarget{csv__reader_8h_source}{}\label{csv__reader_8h_source}\index{source/csv\_reader.h@{source/csv\_reader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJETO\_AED\_2ND\_CSV\_READER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJETO\_AED\_2ND\_CSV\_READER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Airport.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Flight.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Airline.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}City.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Country.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcsv__reader}{csv\_reader}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ std::string\ airlines\_csv\_file\_name;}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ airports\_csv\_file\_name;}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ flights\_csv\_file\_name;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcsv__reader_a344fe3ca3b372e7c652a1f8a1518a655}{read\_airlines\_csv}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcsv__reader_a24da0244774cb52a218cbf12918029ba}{read\_airports\_csv}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcsv__reader_a5be17277abb11afbbe9ede323cf1c570}{read\_flights\_csv}}();}
+\DoxyCodeLine{00021\ \ \ \ \ std::unordered\_map<std::string,\ Airport>\ airports;}
+\DoxyCodeLine{00022\ \ \ \ \ std::unordered\_map<std::string,\ Airline>\ airlines;}
+\DoxyCodeLine{00023\ \ \ \ \ std::unordered\_map<std::string,\ City>\ cities;}
+\DoxyCodeLine{00024\ \ \ \ \ std::unordered\_map<std::string,\ Country>\ countries;}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_airport}{Airport}}*\ \mbox{\hyperlink{classcsv__reader_a7419b352cf14a1ba4f7eec03616bd8c5}{get\_airport\_pointer\_by\_code}}(std::string\ code);}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classcsv__reader_a7da10862398507cb6faedd58089ae462}{csv\_reader}}();}
+\DoxyCodeLine{00028\ \ \ \ \ std::unordered\_map<std::string,\ Airport>\ \mbox{\hyperlink{classcsv__reader_a6e93d36aea863d5f14fcd48ae56138c4}{getAirports}}();}
+\DoxyCodeLine{00029\ \ \ \ \ std::unordered\_map<std::string,\ Airline>\ \mbox{\hyperlink{classcsv__reader_a57c990414030aa5e3728726ba352c653}{getAirlines}}();}
+\DoxyCodeLine{00030\ \ \ \ \ std::unordered\_map<std::string,\ City>\ \mbox{\hyperlink{classcsv__reader_a410165d15ba0f3e7344f6fc31cbc86ff}{getCities}}();}
+\DoxyCodeLine{00031\ \ \ \ \ std::unordered\_map<std::string,\ Country>\ \mbox{\hyperlink{classcsv__reader_aca463503ebea82777a0223e57c845f75}{getCountries}}();}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJETO\_AED\_2ND\_CSV\_READER\_H}}
+
+\end{DoxyCode}
