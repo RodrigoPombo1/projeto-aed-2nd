@@ -1,7 +1,3 @@
-//
-// Created by rodri on 30/12/2023.
-//
-
 #include "csv_reader.h"
 
 using namespace std;

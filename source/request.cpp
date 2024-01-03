@@ -1,7 +1,3 @@
-//
-// Created by rodri on 30/12/2023.
-//
-
 #include "request.h"
 
 using namespace std;
@@ -222,6 +218,11 @@ pair<vector<Flight>, Airport*> request::get_flights_best_option_bfs(vector<Airpo
     return res;
 }
 
+/// @brief Gets pointers to airports with the coordinates given
+/// complexity: O(n) (n = number of airports)
+/// @param latitude latitude of the airport
+/// @param longitude longitude of the airport
+/// @return vector with pointer to the airports with the coordinates given
 vector<Airport*> request::get_vector_airport_pointer_from_geographical_coordinates(double latitude, double longitude) {
     vector<Airport*> res;
     double min_airport_distance_difference = std::numeric_limits<double>::max();
@@ -241,6 +242,13 @@ vector<Airport*> request::get_vector_airport_pointer_from_geographical_coordinat
     return res;
 }
 
+/// @brief Calculates the distance between two coordinates by using their latitude and longitude
+/// complexity: O(1)
+/// @param latitude1 latitude of the first coordinate
+/// @param longitude1 longitude of the first coordinate
+/// @param latitude2 latitude of the second coordinate
+/// @param longitude2 longitude of the second coordinate
+/// @return distance between the two coordinates
 double request::calculate_distance(double latitude1, double longitude1, double latitude2, double longitude2) {
     double dLat = (latitude2 - latitude1) * M_PI / 180.0;
     double dLon = (longitude2 - longitude1) * M_PI / 180.0;
@@ -257,6 +265,11 @@ double request::calculate_distance(double latitude1, double longitude1, double l
     return rad * c;
 }
 
+/// @brief Gets pointers to the airports in a city
+/// complexity: O(n) (n = number of airports in the city)
+/// @param city city we want the airports from
+/// @param country country of the city
+/// @return vector with pointers to the airports in the city
 vector<Airport*> request::get_vector_airport_pointer_from_city(string city, string country) {
     vector<Airport*> res;
     string city_code = city + "-" + country;
@@ -271,6 +284,10 @@ vector<Airport*> request::get_vector_airport_pointer_from_city(string city, stri
     return res;
 }
 
+/// @brief Gets a pointer to a city
+/// complexity: O(1)
+/// @param city_code code of the city
+/// @return pointer to the city
 City* request::get_city_pointer_from_city_code(string city_code) {
     if (this->cities.find(city_code) == this->cities.end()) {
         return nullptr;

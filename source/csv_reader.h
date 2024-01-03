@@ -1,7 +1,3 @@
-//
-// Created by rodri on 30/12/2023.
-//
-
 #ifndef PROJETO_AED_2ND_CSV_READER_H
 #define PROJETO_AED_2ND_CSV_READER_H
 

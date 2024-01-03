@@ -1,7 +1,3 @@
-//
-// Created by rodri on 02/01/2024.
-//
-
 #ifndef PROJETO_AED_2ND_COUNTRY_H
 #define PROJETO_AED_2ND_COUNTRY_H
 

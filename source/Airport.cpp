@@ -1,7 +1,3 @@
-//
-// Created by rodri on 30/12/2023.
-//
-
 #include "Airport.h"
 
 using namespace std;
@@ -87,11 +83,12 @@ std::vector<Flight*> Airport::getFlightsPointer() {
 
 /// @brief Adds a flight to the flights leaving an airport
 /// complexity: O(1)
+/// @param flight flight we want to add
 void Airport::addFlight(Flight flight) {
     this->flights.push_back(flight);
 }
 
-/// @brief Puts all the information about the airport into a string
+/// @brief Puts all the information about an airport into a string
 /// complexity: O(1)
 /// @return string with all the information about the airport
 string Airport::toString() {
@@ -102,6 +99,7 @@ string Airport::toString() {
 
 /// @brief Defines an operator to compare two airports by their codes (to see if it's the same)
 /// complexity: O(1)
+/// @param other other airport we want to compare with
 /// @return boolean value indicating if two airports are the same
 bool Airport::operator==(const Airport &other) const {
     return this->code == other.code;

@@ -1,11 +1,12 @@
-//
-// Created by rodri on 30/12/2023.
-//
-
 #include "menu.h"
 
 using namespace std;
 
+/// @brief Prints current menu and gets the input corresponding to the choice from the options
+/// @param current_selection current menu selected
+/// @param options vector with the diferent options in the menu
+/// @param is_main_menu boolean value corresponding to being the main menu or not
+/// @return choice made
 int menu::print_menu_and_get_choice_input(string current_selection, vector<string> options, bool is_main_menu) {
     int input;
     bool valid_input = false;
@@ -38,10 +39,14 @@ int menu::print_menu_and_get_choice_input(string current_selection, vector<strin
     return input;
 }
 
+/// @brief Prints a separator
 void menu::print_separator() {
     cout << "---------------------------------------------------------------------------\n";
 }
 
+/// @brief Prints current menu and gets number input
+/// @param current_selection current menu selected
+/// @return number input chosen
 int menu::print_menu_and_get_number_input(string current_selection) {
     int input;
     bool valid_input = false;
@@ -70,6 +75,9 @@ int menu::print_menu_and_get_number_input(string current_selection) {
     return input;
 }
 
+/// @brief Prints current menu and gets string input
+/// @param current_selection current menu selected
+/// @return string input chosen
 string menu::print_menu_and_get_string_input(string current_selection) {
     string input;
     bool valid_input = false;
@@ -98,6 +106,10 @@ string menu::print_menu_and_get_string_input(string current_selection) {
     return input;
 }
 
+/// @brief Prints results from the request and gets choice input
+/// @param current_selection current menu selected
+/// @param results vector with the results from the request made
+/// @return input chosen
 int menu::print_result_and_get_choice_input(std::string current_selection, std::vector<std::string> results) {
     int input;
     bool valid_input = false;
@@ -128,11 +140,13 @@ int menu::print_result_and_get_choice_input(std::string current_selection, std::
     return input;
 }
 
+/// @brief Initializes the menu
 menu::menu() {
     Request = request();
     this->main_menu();
 }
 
+/// @brief Prints the main menu
 void menu::main_menu() {
     while (true) {
         this->go_back_to_main_menu = false;
@@ -155,6 +169,7 @@ void menu::main_menu() {
     }
 }
 
+/// @brief Prints the menu of the statistics of the network
 void menu::statistics_of_the_network() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics of the network";
@@ -186,6 +201,7 @@ void menu::statistics_of_the_network() {
     }
 }
 
+/// @brief Prints the menu of the global statistics
 void menu::global_statistics() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Global statistics";
@@ -222,6 +238,7 @@ void menu::global_statistics() {
     }
 }
 
+/// @brief Gets the airport we want the specific statistics from
 void menu::statistics_for_a_specific_airport_get_airport() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistic for a specific airport - enter airport code";
@@ -242,6 +259,8 @@ void menu::statistics_for_a_specific_airport_get_airport() {
     }
 }
 
+/// @brief Prints the menu of statistics for a specific airport
+/// @param airport_pointer pointer to the airport
 void menu::statistics_for_a_specific_airport(Airport *airport_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistic for a specific airport - " + airport_pointer->getCode();
@@ -272,6 +291,9 @@ void menu::statistics_for_a_specific_airport(Airport *airport_pointer) {
     }
 }
 
+/// @brief Gets the number of countries an airport has flights to
+/// @param airports airports we want to search from
+/// @param source airport we want to check the countries it flies to
 void menu::get_number_of_countries_airport_vec_flies_to(std::vector<Airport *> airports, std::string source) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for - " + source;
@@ -310,6 +332,8 @@ void menu::get_number_of_countries_airport_vec_flies_to(std::vector<Airport *> a
     }
 }
 
+/// @brief Gets the statistics for an airport we want the airline
+/// @param airport_pointer pointer to the airport
 void menu::statistics_for_a_specific_airport_want_airline(Airport *airport_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistic for a specific airport - " + airport_pointer->getCode();
@@ -347,6 +371,8 @@ void menu::statistics_for_a_specific_airport_want_airline(Airport *airport_point
     }
 }
 
+/// @brief Gets the flights from a specific airline
+/// @param flights flights we want to filter from
 void menu::get_airline_to_filter_flights(std::vector<Flight> flights) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Please enter airline code";
@@ -402,6 +428,7 @@ void menu::get_airline_to_filter_flights(std::vector<Flight> flights) {
     }
 }
 
+/// @brief Gets the total number of airports
 void menu::get_total_number_of_airports() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Total number of airports";
@@ -420,6 +447,7 @@ void menu::get_total_number_of_airports() {
     }
 }
 
+/// @brief Gets the total number of available flights
 void menu::get_total_number_of_available_flights() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Total number of available flights";
@@ -439,6 +467,7 @@ void menu::get_total_number_of_available_flights() {
     }
 }
 
+/// @brief Gets the airports with the top air traffic capacity
 void menu::get_airports_with_top_air_traffic_capacity() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Airports with top air traffic capacity - enter number of airports to show";
@@ -490,6 +519,7 @@ void menu::get_airports_with_top_air_traffic_capacity() {
     }
 }
 
+/// @brief Gets the city we want specific statistics from
 void menu::statistics_for_a_specific_city_get_city() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific city - enter city";
@@ -517,6 +547,8 @@ void menu::statistics_for_a_specific_city_get_city() {
     }
 }
 
+/// @brief Gets the statistics for a specific city for a specific airline
+/// @param city_pointer pointer to the city
 void menu::statistics_for_a_specific_city_want_airline(City *city_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific city - " + city_pointer->getCode();
@@ -541,6 +573,8 @@ void menu::statistics_for_a_specific_city_want_airline(City *city_pointer) {
     }
 }
 
+/// @brief Gets the airline for the statistics of a specific city
+/// @param city_pointer pointer to the city
 void menu::statistics_for_a_specific_city_get_airline(City *city_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific city - " + city_pointer->getCode() + " - enter airline code";
@@ -561,6 +595,9 @@ void menu::statistics_for_a_specific_city_get_airline(City *city_pointer) {
     }
 }
 
+/// @brief Gets the number of flights leaving a specific city
+/// @param city_pointer pointer to the city
+/// @param airline_pointer pointer to the airlines
 void menu::statistics_for_a_specific_city_show_number_of_flights_out(City *city_pointer, Airline *airline_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific city - " + city_pointer->getCode();
@@ -585,6 +622,8 @@ void menu::statistics_for_a_specific_city_show_number_of_flights_out(City *city_
     }
 }
 
+/// @brief Gets the menu for the statistics for a specific city
+/// @param city_pointer pointer to the city
 void menu::statistics_for_a_specific_city(City *city_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific city - " + city_pointer->getCode();
@@ -613,6 +652,7 @@ void menu::statistics_for_a_specific_city(City *city_pointer) {
     }
 }
 
+/// @brief Gets the airline we want the specific statistics from
 void menu::statistics_for_a_specific_airline_get_airline() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific airline - enter airline code";
@@ -633,6 +673,8 @@ void menu::statistics_for_a_specific_airline_get_airline() {
     }
 }
 
+/// @brief Gets the menu for the statistics for a specific airline
+/// @param airline_pointer pointer to the airline
 void menu::statistics_for_a_specific_airline(Airline *airline_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Statistics for a specific airline - " + airline_pointer->getCode();
@@ -665,6 +707,7 @@ void menu::statistics_for_a_specific_airline(Airline *airline_pointer) {
     }
 }
 
+/// @brief Gets the menu for the best flight option
 void menu::best_flight_option() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Best flight option - select starting source";
@@ -692,6 +735,7 @@ void menu::best_flight_option() {
     }
 }
 
+/// @brief Gets the best flight option from a said airport
 void menu::best_flight_option_get_airport_source() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Best flight option - source - enter airport code";
@@ -714,6 +758,7 @@ void menu::best_flight_option_get_airport_source() {
     }
 }
 
+/// @brief Gets the best flight option from said geographical coordinates
 void menu::best_flight_option_get_geographical_coordinates_source() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Best flight option - source - enter geographical coordinates";
@@ -740,6 +785,7 @@ void menu::best_flight_option_get_geographical_coordinates_source() {
     }
 }
 
+/// @brief Gets the best flight option from a said city
 void menu::best_flight_option_get_city_source() {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Best flight option - source - enter city";
@@ -766,6 +812,9 @@ void menu::best_flight_option_get_city_source() {
     }
 }
 
+/// @brief Asks for the airline we want the best flight option to be searched from
+/// @param vector_airport_pointer vector with pointers to the source airports
+/// @param source_code code of the source airport
 void menu::best_flight_option_select_airline(vector<Airport*> vector_airport_pointer, string source_code) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Best flight option - source - " + source_code + " - select airline";
@@ -793,6 +842,9 @@ void menu::best_flight_option_select_airline(vector<Airport*> vector_airport_poi
     }
 }
 
+/// @brief Gets the airline for the best flight option
+/// @param vector_airport_pointer vector with pointers to the source airports
+/// @param source_code code of the source airport
 void menu::best_flight_option_get_airline(vector<Airport*> vector_airport_pointer, string source_code) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Best flight option - source - " + source_code + " - enter airline code";
@@ -813,6 +865,10 @@ void menu::best_flight_option_get_airline(vector<Airport*> vector_airport_pointe
     }
 }
 
+/// @brief Asks for the target we want the best flight option to be searched
+/// @param vector_airport_pointer vector with pointers to the source airports
+/// @param source_code code of the source airport
+/// @param airline_pointer pointer to the airline we want
 void menu::best_flight_option_select_destination(vector<Airport*> vector_airport_pointer, string source_code, Airline *airline_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Best flight option - source - " + source_code + " - select destination";
@@ -840,6 +896,10 @@ void menu::best_flight_option_select_destination(vector<Airport*> vector_airport
     }
 }
 
+/// @brief Gets the target we want the best flight option to be searched
+/// @param vector_airport_pointer vector with pointers to the source airports
+/// @param source_code code of the source airport
+/// @param airline_pointer pointer to the airline we want
 void menu::best_flight_option_get_airport_destination(vector<Airport*> vector_airport_pointer, string source_code, Airline *airline_pointer) {
     while (!this->go_back_to_main_menu) {
         string current_menu = "Best flight option - source - " + source_code + " - enter destination airport code";
@@ -866,6 +926,10 @@ void menu::best_flight_option_get_airport_destination(vector<Airport*> vector_ai
     }
 }
 
+/// @brief Gets the geographical coordinates of the target we want the best flight option to be searched
+/// @param vector_airport_pointer vector with pointers to the source airports
+/// @param source_code code of the source airport
+/// @param airline_pointer pointer to the airline we want
 void menu::best_flight_option_get_geographical_coordinates_destination(std::vector<Airport *> vector_airport_pointer,
                                                                        std::string source_code,
                                                                        Airline *airline_pointer) {
@@ -896,6 +960,10 @@ void menu::best_flight_option_get_geographical_coordinates_destination(std::vect
     }
 }
 
+/// @brief Gets the city of the target we want the best flight option to be searched
+/// @param vector_airport_pointer vector with pointers to the source airports
+/// @param source_code code of the source airport
+/// @param airline_pointer pointer to the airline we want
 void menu::best_flight_option_get_city_destination(std::vector<Airport *> vector_airport_pointer,
                                                    std::string source_code,
                                                    Airline *airline_pointer) {
@@ -926,6 +994,12 @@ void menu::best_flight_option_get_city_destination(std::vector<Airport *> vector
     }
 }
 
+/// @brief Gets the best flight option from an airport to another
+/// @param airport_pointer_vec vector with pointers to the source airports
+/// @param source_code code of the source airport
+/// @param airline_pointer pointer to the airline we want
+/// @param destination_pointer_vec vector with pointers to the target airports
+/// @param destination_code code of the target airport
 void menu::best_flight_option_airport_to_airport(vector<Airport*> airport_pointer_vec, string source_code, Airline *airline_pointer,
                                                    vector<Airport*> destination_pointer_vec, string destination_code) {
     while (!this->go_back_to_main_menu) {

@@ -1,13 +1,9 @@
-//
-// Created by rodri on 30/12/2023.
-//
-
 #include "Flight.h"
 
 /// @brief Constructs the airline object by attributing it's values
 /// complexity: O(1)
-/// @param source source of the flight
-/// @param target target of the flight
+/// @param source pointer to the source of the flight
+/// @param target pointer to the target of the flight
 /// @param airline airline of the flight
 Flight::Flight(Airport *source, Airport *target, std::string airline) : target(target) {
     this->airline = airline;
@@ -37,6 +33,7 @@ double Flight::getDistance() {
 
 /// @brief Calculates the distance of a flight using the latitude and longitude of it's source and it's target
 /// complexity: O(1)
+/// @param source pointer to the source of the flight
 /// @return distance between the target and source airports
 double Flight::calculate_distance(Airport* source) {
     double lat1 = source->getLatitude();
@@ -59,7 +56,7 @@ double Flight::calculate_distance(Airport* source) {
     return rad * c;
 }
 
-/// @brief Puts the name and the code of the target airport of the flight, the airline of the flight and the distance of the flight into a string
+/// @brief Puts the name and the code of the target airport of a flight, the airline of a flight and the distance of a flight into a string
 /// complexity: O(1)
 /// @return string with name and code of target airport, airline and distance of the flight
 std::string Flight::toString() {

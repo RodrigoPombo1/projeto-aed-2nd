@@ -1,7 +1,3 @@
-//
-// Created by rodri on 02/01/2024.
-//
-
 #ifndef PROJETO_AED_2ND_CITY_H
 #define PROJETO_AED_2ND_CITY_H
 
